@@ -14,7 +14,7 @@ export default function App() {
         <main className="relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/joke" element={<Joke />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </main>
         <Footer />
