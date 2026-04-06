@@ -9,7 +9,7 @@ export default function Footer() {
           <span className="text-zinc-300">SPaaS</span>
         </div>
         <p className="text-zinc-500 text-sm">
-          &copy; {new Date().getFullYear()} SPaaS Inc. All rights reserved. Not a real company.
+          &copy; {new Date().getFullYear()} SPaaS Inc. All rights reserved.
         </p>
         <div className="flex gap-4 text-sm text-zinc-500">
           <a href="#" className="hover:text-white transition-colors">Privacy</a>
