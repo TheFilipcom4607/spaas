@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Joke from './pages/Payment.tsx';
+import Payment from './pages/Payment';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DotGrid from './components/DotGrid';
