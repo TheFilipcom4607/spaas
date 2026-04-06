@@ -24,7 +24,7 @@ export default function Home() {
           <a href="#pricing" className="w-full sm:w-auto bg-white text-zinc-950 px-8 py-3.5 rounded-full hover:bg-zinc-200 hover:text-zinc-950 transition-all font-semibold flex items-center justify-center gap-2 hover:scale-105 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
             Start Free Trial <ArrowRight className="w-4 h-4" />
           </a>
-          <Link to="/joke" className="w-full sm:w-auto bg-zinc-900/80 text-white border border-white/10 px-8 py-3.5 rounded-full hover:bg-zinc-800 hover:text-white hover:border-white/20 transition-all font-semibold flex items-center justify-center backdrop-blur-md">
+          <Link to="/payment" className="w-full sm:w-auto bg-zinc-900/80 text-white border border-white/10 px-8 py-3.5 rounded-full hover:bg-zinc-800 hover:text-white hover:border-white/20 transition-all font-semibold flex items-center justify-center backdrop-blur-md">
             Book a Demo
           </Link>
         </div>
@@ -169,7 +169,7 @@ function PricingCard({ tier, price, description, features, isPopular }: { tier: 
           </li>
         ))}
       </ul>
-      <Link to="/joke" className={`w-full py-3.5 rounded-full font-semibold text-center transition-all duration-300 ${isPopular ? 'bg-white text-zinc-950 hover:bg-zinc-200 hover:text-zinc-950 hover:scale-[1.02]' : 'bg-zinc-800 text-white border border-white/5 hover:bg-zinc-700 hover:text-white'}`}>
+      <Link to="/payment" className={`w-full py-3.5 rounded-full font-semibold text-center transition-all duration-300 ${isPopular ? 'bg-white text-zinc-950 hover:bg-zinc-200 hover:text-zinc-950 hover:scale-[1.02]' : 'bg-zinc-800 text-white border border-white/5 hover:bg-zinc-700 hover:text-white'}`}>
         Get Started
       </Link>
     </div>
