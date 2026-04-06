@@ -11,7 +11,7 @@ export default function Home() {
         
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 backdrop-blur-md shadow-xl">
           <span className="flex h-2 w-2 rounded-full bg-violet-500 animate-pulse"></span>
-          SPaaS 2.0 is now live
+          SPENGINE 3.0 is now live
         </div>
         <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
           <span className="text-violet-400">Shitposting</span> <br className="hidden md:block" />
