@@ -75,11 +75,11 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-sm font-semibold tracking-widest uppercase mb-12 text-zinc-500">Trusted by the most unhinged brands on the internet</h2>
           <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="text-2xl font-bold font-serif">VentureCorp</div>
-            <div className="text-2xl font-black tracking-widest">NEXUS</div>
-            <div className="text-2xl font-medium italic">SynergyTech</div>
-            <div className="text-2xl font-bold tracking-tighter">OMNI</div>
-            <div className="text-2xl font-light uppercase">Global Dynamics</div>
+            <div className="text-2xl font-bold font-serif">cbrand</div>
+            <div className="text-2xl font-black tracking-widest">brianair</div>
+            <div className="text-2xl font-medium italic">triolingo</div>
+            <div className="text-2xl font-bold tracking-tighter">Crispotle's</div>
+            <div className="text-2xl font-light uppercase">Bendy's</div>
           </div>
         </div>
       </section>
