@@ -1,3 +1,3 @@
-its a shitpost. go visit it at https://getspaas.com
+# Shitposting as a Service (SPaaS)
 
-it was made with gemini cos im lazy
+The future of brand loyalty and customer interaction. Try now: https://getspaas.com
