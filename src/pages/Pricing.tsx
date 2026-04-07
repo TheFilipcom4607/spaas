@@ -114,10 +114,10 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 40, scale: plan.highlighted ? 0.95 : 1 }}
-              whileInView={{ opacity: 1, y: 0, scale: plan.highlighted ? 1.02 : 1 }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
+              transition={{ duration: 0.35, delay: index * 0.07 }}
               className={`relative flex flex-col p-8 rounded-3xl border backdrop-blur-sm text-left transition-all duration-300 ${
                 plan.highlighted
                   ? 'bg-violet-500/10 border-violet-500/30 shadow-[0_0_60px_-15px_rgba(139,92,246,0.3)]'
