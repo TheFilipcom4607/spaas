@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, Check, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { fadeInView } from '../lib/motion';
 
 const plans = [
   {
@@ -88,10 +89,10 @@ export default function Pricing() {
     <div className="flex flex-col items-center">
       <section className="w-full max-w-6xl mx-auto px-4 pt-20 md:pt-32 pb-12 md:pb-24 text-center relative">
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
         <div
-          className="animate-fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 backdrop-blur-md shadow-xl"
+          className="animate-fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 md:backdrop-blur-md shadow-xl"
         >
           <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
           No credit card required to start
@@ -114,11 +115,8 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.35, delay: index * 0.07 }}
-              className={`relative flex flex-col p-8 rounded-3xl border backdrop-blur-sm text-left transition-all duration-300 ${
+              {...fadeInView(16, 0.35, index * 0.07)}
+              className={`relative flex flex-col p-8 rounded-3xl border md:backdrop-blur-sm text-left transition-all duration-300 ${
                 plan.highlighted
                   ? 'bg-violet-500/10 border-violet-500/30 shadow-[0_0_60px_-15px_rgba(139,92,246,0.3)]'
                   : 'bg-zinc-900/40 border-white/5 hover:border-white/10'
@@ -175,10 +173,7 @@ export default function Pricing() {
         {/* FAQ Section */}
         <div className="mt-24 w-full max-w-3xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5 }}
+            {...fadeInView(40, 0.5)}
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Frequently Asked Questions</h2>
@@ -201,10 +196,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      {...fadeInView(20, 0.4, index * 0.05)}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}

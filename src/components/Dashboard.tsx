@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { TrendingUp, Clock, Heart, Repeat2, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
+import { isMobile } from '../lib/motion';
 
 const DASHBOARD_WIDTH = 960;
 
@@ -47,10 +48,12 @@ export default function Dashboard() {
     <section className="w-full max-w-5xl mx-auto px-4 pb-16">
       <motion.div
         ref={containerRef}
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+        {...(!isMobile && {
+          initial: { opacity: 0, y: 60 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, amount: 0.1 },
+          transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+        })}
       >
         <div
           style={{

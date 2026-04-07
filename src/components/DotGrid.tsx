@@ -1,9 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { isMobile } from '../lib/motion';
 
 export default function DotGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (isMobile) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -78,5 +81,6 @@ export default function DotGrid() {
     };
   }, []);
 
+  if (isMobile) return null;
   return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
 }

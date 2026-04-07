@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl relative">
+    <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-zinc-950/90 md:bg-zinc-950/60 md:backdrop-blur-xl relative">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tighter group">
           <div className="bg-violet-500/10 p-1.5 rounded-lg border border-violet-500/20 group-hover:bg-violet-500/20 transition-colors">
@@ -39,7 +39,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 bg-zinc-950/95 backdrop-blur-xl border-b border-white/5 md:hidden"
+            className="absolute top-full left-0 right-0 bg-zinc-950 border-b border-white/5 md:hidden"
           >
             <div className="container mx-auto px-4 py-3 flex flex-col gap-1">
               <a
