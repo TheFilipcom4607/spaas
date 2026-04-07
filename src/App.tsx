@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Trial from './pages/Trial';
 import Pricing from './pages/Pricing';
 import Payment from './pages/Payment';
 import Privacy from './pages/Privacy';
@@ -17,6 +18,7 @@ export default function App() {
         <main className="relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/trial" element={<Trial />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/privacy" element={<Privacy />} />
