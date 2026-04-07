@@ -13,6 +13,7 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} SPaaS Inc. All rights reserved.
         </p>
         <div className="flex gap-4 text-sm text-zinc-500">
+          <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
           <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
           <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
         </div>

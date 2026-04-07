@@ -39,8 +39,8 @@ const plans = [
   },
   {
     name: 'Enterprise',
-    price: '$999',
-    period: '/mo',
+    price: 'Custom',
+    period: '/month',
     description: 'For organizations who want to fire their social media teams.',
     features: [
       'Everything in Pro',
@@ -79,7 +79,7 @@ const faqs = [
   },
   {
     question: 'What kind of support do you offer?',
-    answer: 'Starter plans include email support with a 24-hour response time. Pro plans get priority support with a 4-hour SLA and access to our dedicated Slack channel. Enterprise clients receive 24/7 war room access with a named support engineer and direct phone line.',
+    answer: 'Starter plans include email support at support@getspaas.com with a 24-hour response time. Pro plans get priority support with a 4-hour SLA and access to our dedicated Slack channel. Enterprise clients receive 24/7 war room access with a named support engineer and direct phone line.',
   },
 ];
 
@@ -143,16 +143,25 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link
-                to="/payment"
-                className={`w-full py-3.5 rounded-full font-semibold text-center transition-all hover:scale-105 flex items-center justify-center gap-2 ${
-                  plan.highlighted
-                    ? 'bg-white text-zinc-950 hover:bg-zinc-200 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]'
-                    : 'bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700 hover:border-white/20'
-                }`}
-              >
-                {plan.cta} <ArrowRight className="w-4 h-4" />
-              </Link>
+              {plan.name === 'Enterprise' ? (
+                <a
+                  href="mailto:enterprise@getspaas.com"
+                  className="w-full py-3.5 rounded-full font-semibold text-center transition-all hover:scale-105 flex items-center justify-center gap-2 bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700 hover:border-white/20"
+                >
+                  {plan.cta} <ArrowRight className="w-4 h-4" />
+                </a>
+              ) : (
+                <Link
+                  to="/payment"
+                  className={`w-full py-3.5 rounded-full font-semibold text-center transition-all hover:scale-105 flex items-center justify-center gap-2 ${
+                    plan.highlighted
+                      ? 'bg-white text-zinc-950 hover:bg-zinc-200 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]'
+                      : 'bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700 hover:border-white/20'
+                  }`}
+                >
+                  {plan.cta} <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
