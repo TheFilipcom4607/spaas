@@ -16,7 +16,7 @@ export default function Trial() {
 
   return (
     <div className="flex flex-col items-center">
-      <section className="w-full max-w-2xl mx-auto px-4 pt-32 pb-24 relative">
+      <section className="w-full max-w-2xl mx-auto px-4 pt-20 md:pt-32 pb-12 md:pb-24 relative">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
@@ -93,7 +93,7 @@ export default function Trial() {
                   key={platform}
                   className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900/40 border border-white/5 cursor-pointer hover:border-violet-500/20 transition-all has-[:checked]:border-violet-500/30 has-[:checked]:bg-violet-500/5"
                 >
-                  <input type="checkbox" className="accent-violet-500 w-4 h-4" />
+                  <input type="checkbox" className="accent-violet-500 w-4 h-4 rounded" />
                   <span className="text-sm text-zinc-300">{platform}</span>
                 </label>
               ))}
@@ -113,7 +113,8 @@ export default function Trial() {
               max={10}
               value={aggression}
               onChange={(e) => setAggression(Number(e.target.value))}
-              className="w-full accent-violet-500"
+              className="w-full"
+              style={{ '--range-pct': `${((aggression - 1) / 9) * 100}%` } as React.CSSProperties}
             />
             <p className="text-center text-xs text-zinc-500 mt-2">Level {aggression}</p>
           </div>

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full max-w-5xl mx-auto px-4 pt-32 pb-24 text-center relative">
+      <section className="w-full max-w-5xl mx-auto px-4 pt-20 md:pt-32 pb-16 md:pb-24 text-center relative">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
@@ -60,7 +60,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
@@ -112,7 +112,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5 }}
           className="max-w-5xl mx-auto px-4 text-center"
         >
@@ -128,11 +128,11 @@ export default function Home() {
       </section>
 
       {/* Comparison Section */}
-      <section id="comparison" className="w-full max-w-5xl mx-auto px-4 py-24">
+      <section id="comparison" className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
@@ -147,7 +147,7 @@ export default function Home() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="overflow-x-auto rounded-3xl border border-white/5 backdrop-blur-xl relative z-10"
         >
-          <table className="w-full text-sm">
+          <table className="w-full text-sm min-w-[640px]">
             <thead>
               <tr className="border-b border-white/5">
                 <th className="p-6 text-left text-zinc-500 font-medium w-1/4">Capability</th>
@@ -161,48 +161,13 @@ export default function Home() {
             </thead>
             <tbody>
               {[
-                {
-                  label: "Posts per day",
-                  diy: "1–2 (if you remembered)",
-                  intern: "3–4 (mostly reposts)",
-                  spaas: "∞",
-                },
-                {
-                  label: "Understands irony",
-                  diy: "Sometimes",
-                  intern: "Debatable",
-                  spaas: "Always",
-                },
-                {
-                  label: "Will go rogue",
-                  diy: "Yes, at 2am",
-                  intern: "Yes, on day 3",
-                  spaas: "Only if prompted",
-                },
-                {
-                  label: "Needs coffee",
-                  diy: "Desperately",
-                  intern: "Constantly",
-                  spaas: "No",
-                },
-                {
-                  label: "PR crisis response time",
-                  diy: "After seeing Twitter on the toilet",
-                  intern: "After texting their friends about it",
-                  spaas: "<200ms",
-                },
-                {
-                  label: "Ratio accuracy",
-                  diy: "Accidental",
-                  intern: "Enthusiastic but wrong",
-                  spaas: "Surgical",
-                },
-                {
-                  label: "Asks for a raise",
-                  diy: "You are the raise",
-                  intern: "Every two weeks",
-                  spaas: "Never",
-                },
+                { label: "Posts per day", diy: "1–2 (if you remembered)", intern: "3–4 (mostly reposts)", spaas: "∞" },
+                { label: "Understands irony", diy: "Sometimes", intern: "Debatable", spaas: "Always" },
+                { label: "Will go rogue", diy: "Yes, at 2am", intern: "Yes, on day 3", spaas: "Only if prompted" },
+                { label: "Needs coffee", diy: "Desperately", intern: "Constantly", spaas: "No" },
+                { label: "PR crisis response time", diy: "After seeing Twitter on the toilet", intern: "After texting their friends about it", spaas: "<200ms" },
+                { label: "Ratio accuracy", diy: "Accidental", intern: "Enthusiastic but wrong", spaas: "Surgical" },
+                { label: "Asks for a raise", diy: "You are the raise", intern: "Every two weeks", spaas: "Never" },
               ].map((row, i) => (
                 <tr key={i} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group">
                   <td className="p-6 font-medium text-zinc-300">{row.label}</td>
@@ -242,7 +207,7 @@ function FeatureCard({ icon, title, description, index }: { icon: React.ReactNod
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:border-violet-500/30 hover:bg-zinc-900/60 transition-all duration-300 backdrop-blur-sm relative z-10"
     >

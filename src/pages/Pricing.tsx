@@ -86,7 +86,7 @@ const faqs = [
 export default function Pricing() {
   return (
     <div className="flex flex-col items-center">
-      <section className="w-full max-w-6xl mx-auto px-4 pt-32 pb-24 text-center relative">
+      <section className="w-full max-w-6xl mx-auto px-4 pt-20 md:pt-32 pb-12 md:pb-24 text-center relative">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
@@ -123,7 +123,7 @@ export default function Pricing() {
               key={plan.name}
               initial={{ opacity: 0, y: 40, scale: plan.highlighted ? 0.95 : 1 }}
               whileInView={{ opacity: 1, y: 0, scale: plan.highlighted ? 1.02 : 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
               className={`relative flex flex-col p-8 rounded-3xl border backdrop-blur-sm text-left transition-all duration-300 ${
                 plan.highlighted
@@ -175,7 +175,7 @@ export default function Pricing() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
