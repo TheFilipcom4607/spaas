@@ -10,66 +10,58 @@ export default function Terms() {
         </Link>
 
         <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">Terms of Service</h1>
-        <p className="text-zinc-500 text-sm mb-12">Last updated: January 1st, 1970</p>
+        <p className="text-zinc-500 text-sm mb-12">Last updated: April 7, 2026</p>
 
         <div className="prose prose-invert prose-zinc max-w-none space-y-8 text-zinc-400 text-[15px] leading-relaxed">
           <div>
             <h2 className="text-xl font-semibold text-zinc-100 mb-3">1. Acceptance of Terms</h2>
             <p>
-              By visiting this website, you acknowledge that you have a sense of humor, or at the very least, you're pretending to have one. If you do not agree with these terms, please close this tab and go touch grass.
+              By accessing this website, you acknowledge that SPaaS is a satirical project and not a real product or service. No binding agreement is formed by browsing this site.
             </p>
           </div>
 
           <div>
             <h2 className="text-xl font-semibold text-zinc-100 mb-3">2. Description of Service</h2>
             <p>
-              SPaaS (Shitposting as a Service) is a fictional satirical product. It does not exist, has never existed, and will never exist (unless someone with too much money and too little judgment decides to fund it). Any resemblance to real SaaS products is entirely intentional and meant to be funny.
+              SPaaS (Shitposting as a Service) is a fictional SaaS product created for entertainment and as a portfolio piece. All features, pricing plans, testimonials, and brand partnerships described on this site are entirely made up.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">3. User Obligations</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">3. No Commercial Activity</h2>
             <p>
-              You agree to: (a) laugh at least once while browsing this site, (b) share it with at least one person who "totally needs to see this", and (c) not attempt to actually purchase any of the pricing plans listed, as they will lead to a page that calls you out.
+              This website does not sell any products or services. No payments are processed, no subscriptions are created, and no user accounts exist. The pricing page is part of the satirical experience.
             </p>
           </div>
 
           <div>
             <h2 className="text-xl font-semibold text-zinc-100 mb-3">4. Intellectual Property</h2>
             <p>
-              All content on this site, including but not limited to the text, design, fake testimonials, and made-up brand names, is the intellectual property of the creator. "Intellectual" being used loosely here. The site was built as a portfolio piece and shitpost simultaneously, which we consider a flex.
+              All original content on this site, including text, design, and code, is the property of the creator. The fictional brand names referenced on this site are used for comedic purposes and are not affiliated with any real companies.
             </p>
           </div>
 
           <div>
             <h2 className="text-xl font-semibold text-zinc-100 mb-3">5. Limitation of Liability</h2>
             <p>
-              SPaaS is not responsible for: (a) any milk expelled through your nose while reading this site, (b) awkward conversations that arise from sharing this at work, (c) existential crises triggered by realizing this is better designed than your actual startup, or (d) time lost scrolling through fake pricing tiers.
+              This website is provided "as is" without warranties of any kind. The creator is not liable for any damages arising from your use of or inability to use this site.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">6. Termination</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">6. Changes to Terms</h2>
             <p>
-              You may terminate your use of this site at any time by closing the browser tab. We reserve the right to terminate this site whenever we get bored of it, which historically takes about 3-6 months.
+              We reserve the right to update these terms at any time. Continued use of the site constitutes acceptance of any changes.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">7. Governing Law</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">7. Contact</h2>
             <p>
-              These terms are governed by the laws of the internet, which as we all know, are completely unenforceable. In the event of a dispute, both parties agree to settle it via a public Twitter thread.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">8. Contact</h2>
-            <p>
-              For any questions regarding these terms, please visit{' '}
+              For questions about these terms, visit{' '}
               <a href="https://thefilip.com" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 transition-colors underline underline-offset-4">
                 thefilip.com
-              </a>{' '}
-              and pretend you have a legitimate legal inquiry.
+              </a>.
             </p>
           </div>
         </div>

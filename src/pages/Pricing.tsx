@@ -6,13 +6,13 @@ const plans = [
     name: 'Starter',
     price: '$49',
     period: '/mo',
-    description: 'For brands just dipping their toes into chaos.',
+    description: 'For small teams getting started.',
     features: [
       '50 shitposts per day',
       'Basic ratio detection',
       '3 platform integrations',
-      'Auto-generated memes (low-res)',
-      'Email support (we might reply)',
+      'Auto-generated memes',
+      'Email support',
     ],
     cta: 'Select Starter',
     highlighted: false,
@@ -21,7 +21,7 @@ const plans = [
     name: 'Pro',
     price: '$149',
     period: '/mo',
-    description: 'For brands ready to become a main character.',
+    description: 'For brands ready to scale their presence.',
     features: [
       'Unlimited shitposts',
       'Advanced ratio warfare',
@@ -29,7 +29,7 @@ const plans = [
       'HD meme generation',
       'PR Crisis autopilot',
       'Competitor trolling suite',
-      'Priority support (we will reply)',
+      'Priority support',
       'Custom bot army (up to 10k)',
     ],
     cta: 'Select Pro',
@@ -39,7 +39,7 @@ const plans = [
     name: 'Enterprise',
     price: '$999',
     period: '/mo',
-    description: 'For brands that want to watch the world burn.',
+    description: 'For organizations with dedicated social teams.',
     features: [
       'Everything in Pro',
       'Dedicated chaos agent',
@@ -69,7 +69,7 @@ export default function Pricing() {
           Simple, <span className="text-violet-400">transparent</span> pricing
         </h1>
         <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-16">
-          Choose the plan that matches your appetite for destruction. All plans include a 14-day free trial of regret.
+          Choose the plan that fits your team. All plans include a 14-day free trial.
         </p>
 
         {/* Pricing Cards */}
@@ -116,10 +116,9 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* FAQ / Bottom note */}
         <div className="mt-20 text-center">
           <p className="text-zinc-500 text-sm">
-            All prices are made up. Taxes may apply in jurisdictions that tax fictional services.
+            All plans billed monthly. Cancel anytime.
           </p>
         </div>
       </section>

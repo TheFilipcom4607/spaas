@@ -10,55 +10,48 @@ export default function Privacy() {
         </Link>
 
         <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">Privacy Policy</h1>
-        <p className="text-zinc-500 text-sm mb-12">Last updated: January 1st, 1970</p>
+        <p className="text-zinc-500 text-sm mb-12">Last updated: April 7, 2026</p>
 
         <div className="prose prose-invert prose-zinc max-w-none space-y-8 text-zinc-400 text-[15px] leading-relaxed">
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">1. Information We Collect</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">1. Overview</h2>
             <p>
-              We collect absolutely nothing because this is not a real product. However, if it were, we would probably collect everything: your name, email, browser history, guilty pleasures, and the shitposts you almost sent but chickened out of.
+              SPaaS ("Shitposting as a Service") is a satirical project created for entertainment and portfolio purposes. It is not a real product or service, and no commercial transactions take place on this website.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">2. How We Use Your Information</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">2. Information We Collect</h2>
             <p>
-              If we had your data (we don't), we would use it exclusively to train our Shitposting Engine to generate content that sounds vaguely like you but is funnier. We would never sell your data. We would simply use it to ratio you more effectively.
+              This website does not collect, store, or process any personal data. There are no accounts, forms, analytics trackers, or payment systems. We do not use cookies or any other tracking technologies.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">3. Cookies</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">3. Third-Party Services</h2>
             <p>
-              This website uses exactly zero cookies. Not even the metaphorical kind. If your browser is showing cookie warnings, that's a personal problem between you and your browser. We recommend therapy for both of you.
+              This site is hosted on third-party infrastructure which may collect standard server logs (IP addresses, request timestamps). We have no access to or control over this data. No other third-party services are integrated.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">4. Third-Party Services</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">4. External Links</h2>
             <p>
-              We don't integrate with any third-party services because, again, nothing here is real. The brands mentioned on this site ("cbrand", "brianair", "triolingo", "Crispotle's", "Bendy's") are fictional parodies and are not affiliated with any real companies that may or may not have similar names.
+              This website contains links to external sites. We are not responsible for the privacy practices or content of those sites. We encourage you to review the privacy policies of any external site you visit.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">5. Data Retention</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">5. Fictional Content Disclaimer</h2>
             <p>
-              We retain your data for exactly zero seconds because we never collected it in the first place. Our data retention policy is essentially "you can't lose what you never had," which is also our dating philosophy.
+              All brand names, company names, pricing plans, and product features mentioned on this site are entirely fictional and used for comedic purposes. Any resemblance to actual companies or products is coincidental or used in the context of parody.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">6. Your Rights</h2>
+            <h2 className="text-xl font-semibold text-zinc-100 mb-3">6. Contact</h2>
             <p>
-              You have the right to close this tab at any time. You also have the right to share this site with friends and pretend you built it. We won't sue you. Probably.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-zinc-100 mb-3">7. Contact</h2>
-            <p>
-              If you have questions about this privacy policy, please reconsider. But if you must, you can reach us at{' '}
+              If you have any questions about this privacy policy, you can reach the creator at{' '}
               <a href="https://thefilip.com" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 transition-colors underline underline-offset-4">
                 thefilip.com
               </a>.
