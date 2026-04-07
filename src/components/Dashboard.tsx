@@ -41,7 +41,7 @@ export default function Dashboard() {
               <span className="w-3 h-3 rounded-full bg-yellow-500/70"></span>
               <span className="w-3 h-3 rounded-full bg-green-500/70"></span>
             </div>
-            <span className="text-xs text-zinc-500 flex-1 text-center">app.spaas.io/dashboard</span>
+            <span className="text-xs text-zinc-500 flex-1 text-center">app.getspaas.com/dashboard</span>
           </div>
 
           {/* Dashboard body */}
