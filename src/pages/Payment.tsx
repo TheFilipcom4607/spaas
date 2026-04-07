@@ -27,7 +27,7 @@ export default function Joke() {
   return (
     <div className="h-[calc(100svh-4rem)] flex flex-col items-center justify-center px-4 text-center relative z-10">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
       <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 uppercase text-white">
         It's a joke, <br className="md:hidden" />what did you expect?

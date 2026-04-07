@@ -1,0 +1,91 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, AlertCircle, Loader2 } from 'lucide-react';
+
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      setError('No account found with those credentials. Please check your email and password and try again.');
+    }, 1500);
+  };
+
+  return (
+    <div className="flex flex-col items-center">
+      <section className="w-full max-w-md mx-auto px-4 pt-20 md:pt-32 pb-24 relative z-10">
+        <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors group mb-12">
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to homepage
+        </Link>
+
+        <div className="text-center mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-3">
+            Welcome <span className="text-violet-400">back</span>
+          </h1>
+          <p className="text-zinc-400 text-sm">Log in to your SPaaS dashboard.</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-zinc-300 mb-2">Email</label>
+            <input
+              id="email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@company.com"
+              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm"
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-zinc-300 mb-2">Password</label>
+            <input
+              id="password"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm"
+            />
+          </div>
+
+          {error && (
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-sm text-red-400">
+              <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              {error}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3.5 rounded-full bg-white text-zinc-950 font-semibold hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 disabled:opacity-60 disabled:hover:scale-100"
+          >
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" /> Signing in...
+              </>
+            ) : (
+              'Sign in'
+            )}
+          </button>
+        </form>
+
+        <p className="text-center text-zinc-500 text-sm mt-8">
+          Don't have an account?{' '}
+          <Link to="/trial" className="text-violet-400 hover:text-violet-300 transition-colors font-medium">Start a free trial</Link>
+        </p>
+      </section>
+    </div>
+  );
+}

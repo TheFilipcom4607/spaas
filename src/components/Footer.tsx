@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-zinc-950/60 backdrop-blur-xl py-12 mt-12 md:mt-24 relative z-10">
+    <footer className="border-t border-white/5 bg-zinc-950/90 md:bg-zinc-950/60 md:backdrop-blur-xl py-12 mt-12 md:mt-24 relative z-10">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2 font-bold text-xl tracking-tighter">
           <Zap className="w-5 h-5 text-violet-400" />
