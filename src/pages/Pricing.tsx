@@ -10,7 +10,7 @@ const plans = [
     period: '/mo',
     description: 'For small teams getting started.',
     features: [
-      '50 shitposts per day',
+      '10 shitposts per day',
       'Basic ratio detection',
       '3 platform integrations',
       'Auto-generated memes',
@@ -41,7 +41,7 @@ const plans = [
     name: 'Enterprise',
     price: '$999',
     period: '/mo',
-    description: 'For organizations with dedicated social teams.',
+    description: 'For organizations who want to fire their social media teams.',
     features: [
       'Everything in Pro',
       'Dedicated chaos agent',
