@@ -162,7 +162,7 @@ export default function Home() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <p className="text-zinc-400 mb-6 text-lg">Ready to outsource your entire online personality?</p>
+          <p className="text-zinc-400 mb-6 text-lg">Ready to shitpost cheaper, faster and better?</p>
           <Link
             to="/pricing"
             className="inline-flex items-center gap-2 bg-white text-zinc-950 px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
