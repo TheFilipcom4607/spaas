@@ -85,7 +85,9 @@ export default function Home() {
       </section>
 
       {/* Dashboard Preview */}
-      <Dashboard />
+      <div className="w-full pt-16 md:pt-24">
+        <Dashboard />
+      </div>
 
       {/* Features Section */}
       <section id="features" className="w-full max-w-5xl mx-auto px-4 py-24 border-t border-white/5 relative">
