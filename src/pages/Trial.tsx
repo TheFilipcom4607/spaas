@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
 import { ArrowLeft, Sparkles, ChevronDown } from 'lucide-react';
 
 const platforms = ['X (Twitter)', 'LinkedIn', 'Threads', 'Reddit', 'Bluesky', 'Mastodon'];
@@ -24,11 +23,7 @@ export default function Trial() {
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to homepage
         </Link>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="animate-fade-up">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 backdrop-blur-md shadow-xl">
             <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
             14-day free trial, no credit card required
@@ -37,14 +32,12 @@ export default function Trial() {
           <p className="text-zinc-400 mb-12">
             Set up your shitposting pipeline in under 2 minutes. Tell us about your brand and we'll configure your AI content engine.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+        <form
           onSubmit={handleSubmit}
-          className="space-y-6"
+          className="animate-fade-up space-y-6"
+          style={{ animationDelay: '0.15s' }}
         >
           {/* Brand Name */}
           <div>
@@ -133,7 +126,7 @@ export default function Trial() {
             {' '}and{' '}
             <Link to="/privacy" className="text-zinc-400 hover:text-white transition-colors underline underline-offset-4">Privacy Policy</Link>.
           </p>
-        </motion.form>
+        </form>
       </section>
     </div>
   );

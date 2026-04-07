@@ -90,31 +90,24 @@ export default function Pricing() {
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 backdrop-blur-md shadow-xl"
+        <div
+          className="animate-fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 backdrop-blur-md shadow-xl"
         >
           <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
           No credit card required to start
-        </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight"
+        </div>
+        <h1
+          className="animate-fade-up text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight"
+          style={{ animationDelay: '0.1s' }}
         >
           Simple, <span className="text-violet-400">transparent</span> pricing
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-16"
+        </h1>
+        <p
+          className="animate-fade-up text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-16"
+          style={{ animationDelay: '0.2s' }}
         >
           Choose the plan that fits your team. All plans include a 14-day free trial.
-        </motion.p>
+        </p>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">

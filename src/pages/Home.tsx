@@ -11,37 +11,28 @@ export default function Home() {
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 backdrop-blur-md shadow-xl"
+        <div
+          className="animate-fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 backdrop-blur-md shadow-xl"
         >
           <span className="flex h-2 w-2 rounded-full bg-violet-500 animate-pulse"></span>
           SPENGINE 3.0 is now live
-        </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight"
+        </div>
+        <h1
+          className="animate-fade-up text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight"
+          style={{ animationDelay: '0.1s' }}
         >
           <span className="text-violet-400">Shitposting</span> <br className="hidden md:block" />
           as a Service
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10"
+        </h1>
+        <p
+          className="animate-fade-up text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10"
+          style={{ animationDelay: '0.2s' }}
         >
           Automate your brand's descent into internet culture. We leverage advanced AI to generate highly engaging, mildly offensive, and algorithm-optimized content at scale.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        </p>
+        <div
+          className="animate-fade-up flex flex-col sm:flex-row items-center justify-center gap-4"
+          style={{ animationDelay: '0.3s' }}
         >
           <Link to="/trial" className="w-full sm:w-auto bg-white text-zinc-950 px-8 py-3.5 rounded-full hover:bg-zinc-200 hover:text-zinc-950 transition-all font-semibold flex items-center justify-center gap-2 hover:scale-105 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
             Start Free Trial <ArrowRight className="w-4 h-4" />
@@ -49,7 +40,7 @@ export default function Home() {
           <Link to="/pricing" className="w-full sm:w-auto bg-zinc-900/80 text-white border border-white/10 px-8 py-3.5 rounded-full hover:bg-zinc-800 hover:text-white hover:border-white/20 transition-all font-semibold flex items-center justify-center backdrop-blur-md">
             View Pricing
           </Link>
-        </motion.div>
+        </div>
       </section>
 
       {/* Dashboard Preview */}
