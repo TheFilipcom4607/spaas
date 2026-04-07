@@ -21,16 +21,16 @@ export default function Login() {
 
   return (
     <div className="flex flex-col items-center">
-      <section className="w-full max-w-md mx-auto px-4 pt-20 md:pt-32 pb-24 relative z-10">
+      <section className="w-full max-w-md md:max-w-xl mx-auto px-4 pt-20 md:pt-32 pb-24 relative z-10">
         <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors group mb-12">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to homepage
         </Link>
 
-        <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-3">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-3">
             Welcome <span className="text-violet-400">back</span>
           </h1>
-          <p className="text-zinc-400 text-sm">Log in to your SPaaS dashboard.</p>
+          <p className="text-zinc-400 md:text-base text-sm">Log in to your SPaaS dashboard.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -43,7 +43,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@company.com"
-              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm"
+              className="w-full px-5 py-3.5 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm md:text-base"
             />
           </div>
           <div>
@@ -55,7 +55,7 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm"
+              className="w-full px-5 py-3.5 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm md:text-base"
             />
           </div>
 
@@ -69,7 +69,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 rounded-full bg-white text-zinc-950 font-semibold hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 disabled:opacity-60 disabled:hover:scale-100"
+            className="w-full py-4 rounded-full bg-white text-zinc-950 font-semibold hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 disabled:opacity-60 disabled:hover:scale-100 md:text-base"
           >
             {loading ? (
               <>
