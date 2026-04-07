@@ -21,11 +21,11 @@ export default function Home() {
           Automate your brand's descent into internet culture. We leverage advanced AI to generate highly engaging, mildly offensive, and algorithm-optimized content at scale.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#comparison" className="w-full sm:w-auto bg-white text-zinc-950 px-8 py-3.5 rounded-full hover:bg-zinc-200 hover:text-zinc-950 transition-all font-semibold flex items-center justify-center gap-2 hover:scale-105 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
+          <Link to="/pricing" className="w-full sm:w-auto bg-white text-zinc-950 px-8 py-3.5 rounded-full hover:bg-zinc-200 hover:text-zinc-950 transition-all font-semibold flex items-center justify-center gap-2 hover:scale-105 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
             Start Free Trial <ArrowRight className="w-4 h-4" />
-          </a>
-          <Link to="/payment" className="w-full sm:w-auto bg-zinc-900/80 text-white border border-white/10 px-8 py-3.5 rounded-full hover:bg-zinc-800 hover:text-white hover:border-white/20 transition-all font-semibold flex items-center justify-center backdrop-blur-md">
-            Book a Demo
+          </Link>
+          <Link to="/pricing" className="w-full sm:w-auto bg-zinc-900/80 text-white border border-white/10 px-8 py-3.5 rounded-full hover:bg-zinc-800 hover:text-white hover:border-white/20 transition-all font-semibold flex items-center justify-center backdrop-blur-md">
+            View Pricing
           </Link>
         </div>
       </section>
@@ -164,7 +164,7 @@ export default function Home() {
         <div className="mt-16 text-center">
           <p className="text-zinc-400 mb-6 text-lg">Ready to outsource your entire online personality?</p>
           <Link
-            to="/payment"
+            to="/pricing"
             className="inline-flex items-center gap-2 bg-white text-zinc-950 px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
           >
             See pricing &amp; get started <ArrowRight className="w-5 h-5" />

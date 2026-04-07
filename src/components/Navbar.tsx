@@ -13,9 +13,9 @@ export default function Navbar() {
         </Link>
         <div className="flex items-center gap-6 text-sm font-medium text-zinc-400">
           <a href="/#features" className="hover:text-white transition-colors hidden md:block">Features</a>
-          <a href="/#pricing" className="hover:text-white transition-colors hidden md:block">Pricing</a>
+          <Link to="/pricing" className="hover:text-white transition-colors hidden md:block">Pricing</Link>
           <Link to="/payment" className="hover:text-white transition-colors">Log in</Link>
-          <Link to="/payment" className="bg-white text-zinc-950 px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-all font-semibold hover:scale-105 shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)]">
+          <Link to="/pricing" className="bg-white text-zinc-950 px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-all font-semibold hover:scale-105 shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)]">
             Get Started
           </Link>
         </div>
