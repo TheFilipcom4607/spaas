@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, Sparkles, ChevronDown } from 'lucide-react';
 
-const platforms = ['X (Twitter)', 'LinkedIn', 'Threads', 'Reddit', 'Bluesky', 'Mastodon'];
+  const platforms = ['X (Twitter)', 'LinkedIn', 'Threads', 'Reddit', 'Bluesky', 'Instagram'];
 
 export default function Trial() {
   const navigate = useNavigate();
