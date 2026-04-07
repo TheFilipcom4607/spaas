@@ -21,7 +21,7 @@ export default function Home() {
           Automate your brand's descent into internet culture. We leverage advanced AI to generate highly engaging, mildly offensive, and algorithm-optimized content at scale.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#pricing" className="w-full sm:w-auto bg-white text-zinc-950 px-8 py-3.5 rounded-full hover:bg-zinc-200 hover:text-zinc-950 transition-all font-semibold flex items-center justify-center gap-2 hover:scale-105 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
+          <a href="#comparison" className="w-full sm:w-auto bg-white text-zinc-950 px-8 py-3.5 rounded-full hover:bg-zinc-200 hover:text-zinc-950 transition-all font-semibold flex items-center justify-center gap-2 hover:scale-105 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
             Start Free Trial <ArrowRight className="w-4 h-4" />
           </a>
           <Link to="/payment" className="w-full sm:w-auto bg-zinc-900/80 text-white border border-white/10 px-8 py-3.5 rounded-full hover:bg-zinc-800 hover:text-white hover:border-white/20 transition-all font-semibold flex items-center justify-center backdrop-blur-md">
@@ -84,49 +84,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="w-full max-w-5xl mx-auto px-4 py-24">
+      {/* Comparison Section */}
+      <section id="comparison" className="w-full max-w-5xl mx-auto px-4 py-24">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Simple, transparent pricing</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">Pay for the engagement you want. Cancel anytime.</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Why SPaaS beats the alternatives</h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto">We ran the numbers. The numbers were embarrassing for everyone except us.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <PricingCard 
-            tier="Starter"
-            price="$49"
-            description="Perfect for small startups looking to build a cult following."
-            features={[
-              "100 AI-generated shitposts/mo",
-              "Basic meme templates",
-              "Standard support",
-              "1 connected account"
-            ]}
-          />
-          <PricingCard 
-            tier="Pro"
-            price="$199"
-            description="For growing brands that need to dominate the timeline."
-            features={[
-              "Unlimited shitposts",
-              "Custom meme generation",
-              "Priority support",
-              "5 connected accounts",
-              "Automated ratio defense"
-            ]}
-            isPopular
-          />
-          <PricingCard 
-            tier="Enterprise"
-            price="Custom"
-            description="Dedicated infrastructure for Fortune 500 shitposting."
-            features={[
-              "Dedicated account manager",
-              "Custom NLP model training",
-              "24/7 PR crisis management",
-              "Unlimited accounts",
-              "SLA guarantees"
-            ]}
-          />
+
+        <div className="overflow-x-auto rounded-3xl border border-white/5 backdrop-blur-xl relative z-10">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-white/5">
+                <th className="p-6 text-left text-zinc-500 font-medium w-1/4">Capability</th>
+                <th className="p-6 text-center font-semibold text-zinc-400 w-1/4">Doing It Yourself</th>
+                <th className="p-6 text-center font-semibold text-zinc-400 w-1/4">Hiring an Intern</th>
+                <th className="p-6 text-center w-1/4 bg-violet-500/10 border-l border-r border-violet-500/20">
+                  <span className="text-violet-300 font-bold">SPaaS</span>
+                  <span className="ml-2 text-xs bg-violet-500/20 text-violet-300 border border-violet-500/30 px-2 py-0.5 rounded-full">recommended</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  label: "Posts per day",
+                  diy: "1–2 (if you remembered)",
+                  intern: "3–4 (mostly reposts)",
+                  spaas: "∞",
+                },
+                {
+                  label: "Understands irony",
+                  diy: "Sometimes",
+                  intern: "Debatable",
+                  spaas: "Always",
+                },
+                {
+                  label: "Will go rogue",
+                  diy: "Yes, at 2am",
+                  intern: "Yes, on day 3",
+                  spaas: "Only if prompted",
+                },
+                {
+                  label: "Needs coffee",
+                  diy: "Desperately",
+                  intern: "Constantly",
+                  spaas: "No",
+                },
+                {
+                  label: "PR crisis response time",
+                  diy: "After seeing Twitter on the toilet",
+                  intern: "After texting their friends about it",
+                  spaas: "<200ms",
+                },
+                {
+                  label: "Ratio accuracy",
+                  diy: "Accidental",
+                  intern: "Enthusiastic but wrong",
+                  spaas: "Surgical",
+                },
+                {
+                  label: "Asks for a raise",
+                  diy: "You are the raise",
+                  intern: "Every two weeks",
+                  spaas: "Never",
+                },
+              ].map((row, i) => (
+                <tr key={i} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group">
+                  <td className="p-6 font-medium text-zinc-300">{row.label}</td>
+                  <td className="p-6 text-center text-zinc-500">{row.diy}</td>
+                  <td className="p-6 text-center text-zinc-500">{row.intern}</td>
+                  <td className="p-6 text-center font-semibold text-violet-300 bg-violet-500/10 border-l border-r border-violet-500/20 group-hover:bg-violet-500/[0.15] transition-colors">{row.spaas}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-zinc-400 mb-6 text-lg">Ready to outsource your entire online personality?</p>
+          <Link
+            to="/payment"
+            className="inline-flex items-center gap-2 bg-white text-zinc-950 px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
+          >
+            See pricing &amp; get started <ArrowRight className="w-5 h-5" />
+          </Link>
+          <p className="text-zinc-600 text-xs mt-4">No credit card required. Just poor judgment.</p>
         </div>
       </section>
     </div>
@@ -141,37 +184,6 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode, titl
       </div>
       <h3 className="text-xl font-semibold mb-3 text-zinc-100">{title}</h3>
       <p className="text-zinc-400 text-sm leading-relaxed">{description}</p>
-    </div>
-  );
-}
-
-function PricingCard({ tier, price, description, features, isPopular }: { tier: string, price: string, description: string, features: string[], isPopular?: boolean }) {
-  return (
-    <div className={`p-8 rounded-3xl border ${isPopular ? 'border-violet-500/50 bg-zinc-900/80 shadow-[0_0_40px_-15px_rgba(139,92,246,0.15)]' : 'border-white/5 bg-zinc-900/40'} relative flex flex-col backdrop-blur-xl z-10 transition-transform hover:-translate-y-1 duration-300`}>
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-xl font-semibold text-zinc-100">{tier}</h3>
-        {isPopular && (
-          <span className="bg-violet-500/20 text-violet-300 border border-violet-500/30 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
-            Most Popular
-          </span>
-        )}
-      </div>
-      <div className="mb-4">
-        <span className="text-4xl font-bold tracking-tighter text-white">{price}</span>
-        {price !== "Custom" && <span className="text-zinc-500 font-medium">/mo</span>}
-      </div>
-      <p className="text-zinc-400 text-sm mb-8 h-10">{description}</p>
-      <ul className="space-y-4 mb-8 flex-1">
-        {features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm text-zinc-300">
-            <Zap className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" />
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-      <Link to="/payment" className={`w-full py-3.5 rounded-full font-semibold text-center transition-all duration-300 ${isPopular ? 'bg-white text-zinc-950 hover:bg-zinc-200 hover:text-zinc-950 hover:scale-[1.02]' : 'bg-zinc-800 text-white border border-white/5 hover:bg-zinc-700 hover:text-white'}`}>
-        Get Started
-      </Link>
     </div>
   );
 }
