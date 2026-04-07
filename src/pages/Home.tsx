@@ -1,7 +1,36 @@
+import { useRef, useEffect, useState } from 'react';
 import { ArrowRight, BarChart3, MessageSquareWarning, Zap, Globe, ShieldCheck, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import Dashboard from '../components/Dashboard';
+
+const stats = [
+  { prefix: '', value: 2.4, decimals: 1, suffix: 'B', label: 'Shitposts served' },
+  { prefix: '', value: 847, decimals: 0, suffix: 'K', label: 'Brands destroyed' },
+  { prefix: '', value: 99.97, decimals: 2, suffix: '%', label: 'Uptime (give or take)' },
+  { prefix: '<', value: 12, decimals: 0, suffix: 'ms', label: 'Avg. ratio response time' },
+];
+
+const testimonials = [
+  {
+    quote: "I didn't think a bot army could save my quarterly earnings call, but here we are.",
+    name: 'Marcus T.',
+    title: 'CEO',
+    company: 'cbrand',
+  },
+  {
+    quote: "SPaaS took us from 2 posts a week to 847 a day. Our PR team quit but engagement is through the roof.",
+    name: 'Aoife R.',
+    title: 'VP of Marketing',
+    company: 'brianair',
+  },
+  {
+    quote: "The deepfake meme module alone is worth the Enterprise price. Legal said no. We did it anyway.",
+    name: 'Jordan K.',
+    title: 'Director of Social Media',
+    company: "Crispotle's",
+  },
+];
 
 export default function Home() {
   return (
@@ -40,6 +69,18 @@ export default function Home() {
           <Link to="/pricing" className="w-full sm:w-auto bg-zinc-900/80 text-white border border-white/10 px-8 py-3.5 rounded-full hover:bg-zinc-800 hover:text-white hover:border-white/20 transition-all font-semibold flex items-center justify-center backdrop-blur-md">
             View Pricing
           </Link>
+        </div>
+      </section>
+
+      {/* Stats Bar */}
+      <section className="w-full border-y border-white/5 bg-zinc-900/20 backdrop-blur-xl py-12 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <StatCounter prefix={stat.prefix} target={stat.value} decimals={stat.decimals} suffix={stat.suffix} />
+              <p className="text-zinc-500 text-sm mt-2">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -118,6 +159,43 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Testimonials */}
+      <section className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.35 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">What our customers are saying</h2>
+          <p className="text-zinc-400">Don't take our word for it. Take theirs.</p>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={t.name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.35, delay: i * 0.07 }}
+              className="p-8 rounded-3xl bg-zinc-900/40 border border-white/5 backdrop-blur-sm flex flex-col gap-4 relative z-10"
+            >
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, j) => (
+                  <span key={j} className="text-violet-400 text-lg leading-none">★</span>
+                ))}
+              </div>
+              <p className="text-zinc-300 text-sm leading-relaxed flex-1">"{t.quote}"</p>
+              <div>
+                <p className="text-zinc-200 font-medium text-sm">{t.name}</p>
+                <p className="text-zinc-500 text-xs mt-0.5">{t.title} · <span className="text-violet-400">{t.company}</span></p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Comparison Section */}
       <section id="comparison" className="w-full max-w-5xl mx-auto px-4 py-16 md:py-24">
         <motion.div
@@ -189,6 +267,44 @@ export default function Home() {
           <p className="text-zinc-600 text-xs mt-4">No credit card required.</p>
         </motion.div>
       </section>
+    </div>
+  );
+}
+
+function StatCounter({ prefix = '', target, decimals = 0, suffix }: { prefix?: string; target: number; decimals?: number; suffix: string }) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const duration = 1200;
+          let startTime: number | null = null;
+          const animate = (ts: number) => {
+            if (startTime === null) startTime = ts;
+            const progress = Math.min((ts - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setValue(parseFloat((eased * target).toFixed(decimals)));
+            if (progress < 1) requestAnimationFrame(animate);
+            else setValue(target);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, decimals]);
+
+  return (
+    <div ref={ref} className="text-4xl md:text-5xl font-black text-white">
+      {prefix}{decimals > 0 ? value.toFixed(decimals) : Math.floor(value)}{suffix}
     </div>
   );
 }
