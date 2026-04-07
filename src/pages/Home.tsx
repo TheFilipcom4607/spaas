@@ -6,7 +6,7 @@ import Dashboard from '../components/Dashboard';
 
 const stats = [
   { prefix: '', value: 2.4, decimals: 1, suffix: 'B', label: 'Shitposts served' },
-  { prefix: '', value: 847, decimals: 0, suffix: 'K', label: 'Brands destroyed' },
+  { prefix: '>', value: 5, decimals: 0, suffix: 'K', label: 'Happy customers' },
   { prefix: '', value: 99.97, decimals: 2, suffix: '%', label: 'Uptime (give or take)' },
   { prefix: '<', value: 12, decimals: 0, suffix: 'ms', label: 'Avg. ratio response time' },
 ];
