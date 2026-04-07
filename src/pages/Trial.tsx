@@ -15,7 +15,7 @@ export default function Trial() {
 
   return (
     <div className="flex flex-col items-center">
-      <section className="w-full max-w-2xl mx-auto px-4 pt-20 md:pt-32 pb-12 md:pb-24 relative">
+      <section className="w-full max-w-2xl mx-auto px-4 pt-12 md:pt-20 pb-12 md:pb-24 relative">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 

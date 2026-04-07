@@ -92,10 +92,10 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="w-full max-w-5xl mx-auto px-4 py-24 border-t border-white/5 relative">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.35 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Why choose SPaaS?</h2>
