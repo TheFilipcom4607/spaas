@@ -169,7 +169,7 @@ export default function Home() {
           >
             See pricing &amp; get started <ArrowRight className="w-5 h-5" />
           </Link>
-          <p className="text-zinc-600 text-xs mt-4">No credit card required. Just poor judgment.</p>
+          <p className="text-zinc-600 text-xs mt-4">No credit card required.</p>
         </div>
       </section>
     </div>
