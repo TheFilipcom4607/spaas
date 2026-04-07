@@ -47,9 +47,9 @@ export default function Contact() {
             <motion.a
               key={item.email}
               href={`mailto:${item.email}`}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.3, delay: i * 0.07 }}
               className="group flex items-start gap-6 p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:border-violet-500/30 hover:bg-zinc-900/60 transition-all duration-300 backdrop-blur-sm"
             >
               <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center border border-violet-500/20 group-hover:scale-110 group-hover:bg-violet-500/20 transition-all duration-300 flex-shrink-0">

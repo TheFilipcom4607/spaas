@@ -79,7 +79,7 @@ const faqs = [
   },
   {
     question: 'What kind of support do you offer?',
-    answer: 'Starter plans include email support at support@getspaas.com with a 24-hour response time. Pro plans get priority support with a 4-hour SLA and access to our dedicated Slack channel. Enterprise clients receive 24/7 war room access with a named support engineer and direct phone line.',
+    answer: 'Starter plans include email support at support@getspaas.com with a 3 business day response time. Pro plans get priority support with a 4-hour SLA and access to our dedicated Slack channel. Enterprise clients receive 24/7 war room access with a named support engineer and direct phone line.',
   },
 ];
 
