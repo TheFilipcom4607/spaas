@@ -7,4 +7,6 @@ The future of brand loyalty and customer interaction. Try now: https://getspaas.
   <summary>Spoiler </summary>
        its basically a shitpost about software as a service. 
     still, go to https://getspaas.com
-</details>
+
+  it was made with claude and gemini. im lazy
+  </details>
