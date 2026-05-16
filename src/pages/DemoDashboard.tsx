@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Zap, Home as HomeIcon, BarChart3, MessageSquareWarning, Bot, Calendar, Settings,
   LogOut, Search, Bell, TrendingUp, Clock, Heart, Repeat2, MessageCircle, Send,
   Sparkles, ShieldCheck, Plus, Filter, X, Menu, ChevronDown, Monitor, Activity,
   Globe, Flame, ArrowUpRight, Server, FileText, Key, CreditCard, AlertTriangle,
-  Check,
+  Check, PlayCircle, ArrowRight, ArrowLeft,
 } from 'lucide-react';
 
 type ViewId = 'Overview' | 'Compose' | 'Scheduled' | 'Bot Network' | 'Analytics' | 'Crisis Mode' | 'Settings';
@@ -242,6 +242,262 @@ function Toggle({ on }: { on: boolean }) {
   );
 }
 
+type TourStep = {
+  selector?: string;
+  view?: ViewId;
+  title: string;
+  body: string;
+  placement?: 'top' | 'bottom' | 'left' | 'right' | 'center';
+};
+
+const tourSteps: TourStep[] = [
+  {
+    placement: 'center',
+    title: 'Welcome to SPaaS',
+    body: "You're in demo mode. Nothing here is real, but everything is clickable. Let's take a quick tour.",
+  },
+  {
+    selector: 'sidebar',
+    view: 'Overview',
+    placement: 'right',
+    title: 'Navigate the workspace',
+    body: 'Compose drafts, manage your bot army, watch the analytics climb. Every section is a click away.',
+  },
+  {
+    selector: 'stats',
+    view: 'Overview',
+    placement: 'bottom',
+    title: 'Your key metrics',
+    body: 'Posts today, ratio score, engagement, active bots. The numbers that keep your CMO sleeping at night.',
+  },
+  {
+    selector: 'compose',
+    view: 'Overview',
+    placement: 'bottom',
+    title: 'Generate posts with AI',
+    body: 'Tell SPENGINE a vibe, pick a tone, hit generate. Plausible deniability included.',
+  },
+  {
+    selector: 'chart',
+    view: 'Overview',
+    placement: 'top',
+    title: 'Track engagement over time',
+    body: 'See your reach climb as the bots do what bots do best: engage.',
+  },
+  {
+    selector: 'scheduled',
+    view: 'Overview',
+    placement: 'left',
+    title: 'A pipeline of upcoming chaos',
+    body: 'Posts queued and waiting for their moment. View all to see the full schedule.',
+  },
+  {
+    selector: 'bots',
+    view: 'Bot Network',
+    placement: 'bottom',
+    title: 'A globally distributed bot army',
+    body: '12,847 bots across six regions. Always-on, always opinionated.',
+  },
+  {
+    selector: 'crisis',
+    view: 'Crisis Mode',
+    placement: 'bottom',
+    title: 'For when things go sideways',
+    body: 'Arm Crisis Mode to pause posts, deploy apologies, and blame the intern. (The intern is fine.)',
+  },
+  {
+    placement: 'center',
+    title: "You're all set",
+    body: "That's the grand tour. Poke around. Nothing here is real, so feel free to break things.",
+  },
+];
+
+function TourOverlay({
+  step,
+  index,
+  total,
+  onNext,
+  onPrev,
+  onClose,
+}: {
+  step: TourStep;
+  index: number;
+  total: number;
+  onNext: () => void;
+  onPrev: () => void;
+  onClose: () => void;
+}) {
+  const [rect, setRect] = useState<DOMRect | null>(null);
+  const [ready, setReady] = useState(false);
+
+  useLayoutEffect(() => {
+    let raf = 0;
+    let cancelled = false;
+
+    const measure = () => {
+      if (!step.selector) {
+        setRect(null);
+        setReady(true);
+        return;
+      }
+      const el = document.querySelector<HTMLElement>(`[data-tour="${step.selector}"]`);
+      if (!el) {
+        setRect(null);
+        setReady(true);
+        return;
+      }
+      el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      // Let the smooth scroll settle, then measure.
+      window.setTimeout(() => {
+        if (cancelled) return;
+        setRect(el.getBoundingClientRect());
+        setReady(true);
+      }, 320);
+    };
+
+    setReady(false);
+    raf = window.requestAnimationFrame(measure);
+
+    const onResize = () => {
+      if (!step.selector) return;
+      const el = document.querySelector<HTMLElement>(`[data-tour="${step.selector}"]`);
+      if (el) setRect(el.getBoundingClientRect());
+    };
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(raf);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [step]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      else if (e.key === 'ArrowRight' || e.key === 'Enter') onNext();
+      else if (e.key === 'ArrowLeft') onPrev();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onNext, onPrev, onClose]);
+
+  const placement = step.placement ?? 'bottom';
+  const tooltipWidth = 340;
+  const padding = 12;
+
+  let tooltipStyle: React.CSSProperties;
+  if (!rect || placement === 'center') {
+    tooltipStyle = {
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: tooltipWidth,
+    };
+  } else {
+    let top = 0;
+    let left = 0;
+    if (placement === 'bottom') {
+      top = rect.bottom + 16;
+      left = rect.left + rect.width / 2 - tooltipWidth / 2;
+    } else if (placement === 'top') {
+      top = rect.top - 16 - 180;
+      left = rect.left + rect.width / 2 - tooltipWidth / 2;
+    } else if (placement === 'right') {
+      top = rect.top + rect.height / 2 - 90;
+      left = rect.right + 16;
+    } else if (placement === 'left') {
+      top = rect.top + rect.height / 2 - 90;
+      left = rect.left - 16 - tooltipWidth;
+    }
+    // Clamp to viewport.
+    const maxLeft = window.innerWidth - tooltipWidth - padding;
+    const maxTop = window.innerHeight - 200 - padding;
+    left = Math.max(padding, Math.min(left, maxLeft));
+    top = Math.max(padding, Math.min(top, maxTop));
+    tooltipStyle = { position: 'fixed', top, left, width: tooltipWidth };
+  }
+
+  const isFirst = index === 0;
+  const isLast = index === total - 1;
+
+  return (
+    <div className="fixed inset-0 z-[100]" aria-hidden={!ready}>
+      {/* Backdrop + spotlight */}
+      {rect && step.selector ? (
+        <div
+          className="pointer-events-none transition-all duration-300"
+          style={{
+            position: 'fixed',
+            top: rect.top - 8,
+            left: rect.left - 8,
+            width: rect.width + 16,
+            height: rect.height + 16,
+            boxShadow: '0 0 0 9999px rgba(9, 9, 11, 0.72)',
+            borderRadius: 14,
+            border: '2px solid rgb(167 139 250)',
+            transition: 'top .3s, left .3s, width .3s, height .3s, opacity .2s',
+            opacity: ready ? 1 : 0,
+          }}
+        />
+      ) : (
+        <div
+          className="absolute inset-0 bg-zinc-950/75 backdrop-blur-sm transition-opacity duration-200"
+          style={{ opacity: ready ? 1 : 0 }}
+          onClick={onClose}
+        />
+      )}
+
+      {/* Tooltip */}
+      <div
+        style={{ ...tooltipStyle, opacity: ready ? 1 : 0 }}
+        className="rounded-2xl bg-zinc-900 border border-violet-500/30 shadow-2xl p-5 transition-opacity duration-200"
+      >
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-[10px] uppercase tracking-wider font-semibold text-violet-300 bg-violet-500/10 border border-violet-500/20 px-2 py-0.5 rounded-full">
+            Tour · {index + 1} of {total}
+          </span>
+          <button
+            onClick={onClose}
+            className="p-1 rounded hover:bg-white/5 transition-colors"
+            aria-label="Close tour"
+          >
+            <X className="w-3.5 h-3.5 text-zinc-400" />
+          </button>
+        </div>
+        <h3 className="text-base font-semibold text-white mb-1.5">{step.title}</h3>
+        <p className="text-sm text-zinc-400 leading-relaxed mb-4">{step.body}</p>
+        <div className="flex items-center justify-between gap-2">
+          <button
+            onClick={onClose}
+            className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+          >
+            Skip tour
+          </button>
+          <div className="flex items-center gap-2">
+            {!isFirst && (
+              <button
+                onClick={onPrev}
+                className="flex items-center gap-1.5 text-xs font-medium text-zinc-300 bg-zinc-800/60 hover:bg-zinc-800 border border-white/10 px-3 py-1.5 rounded-lg transition-colors"
+              >
+                <ArrowLeft className="w-3 h-3" /> Back
+              </button>
+            )}
+            <button
+              onClick={onNext}
+              className="flex items-center gap-1.5 text-xs font-semibold text-white bg-violet-500 hover:bg-violet-400 px-3 py-1.5 rounded-lg transition-colors"
+            >
+              {isLast ? 'Finish' : 'Next'}
+              {!isLast && <ArrowRight className="w-3 h-3" />}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function DemoDashboard() {
   const navigate = useNavigate();
   const [active, setActive] = useState<ViewId>('Overview');
@@ -251,6 +507,34 @@ export default function DemoDashboard() {
   const [platform, setPlatform] = useState('X');
   const [range, setRange] = useState('1M');
   const [crisisArmed, setCrisisArmed] = useState(false);
+  const [tourStep, setTourStep] = useState<number>(-1);
+  const [tourPromptOpen, setTourPromptOpen] = useState(true);
+
+  const startTour = () => {
+    setTourPromptOpen(false);
+    setActive('Overview');
+    setTourStep(0);
+  };
+  const endTour = () => setTourStep(-1);
+  const declineTour = () => setTourPromptOpen(false);
+  const nextStep = () => {
+    setTourStep((s) => {
+      const next = s + 1;
+      if (next >= tourSteps.length) return -1;
+      const view = tourSteps[next]?.view;
+      if (view) setActive(view);
+      return next;
+    });
+  };
+  const prevStep = () => {
+    setTourStep((s) => {
+      const prev = Math.max(0, s - 1);
+      const view = tourSteps[prev]?.view;
+      if (view) setActive(view);
+      return prev;
+    });
+  };
+
 
   return (
     <>
@@ -273,8 +557,54 @@ export default function DemoDashboard() {
 
       {/* Dashboard (desktop only) */}
       <div className="hidden md:flex fixed inset-0 bg-zinc-950 text-zinc-50">
+        {tourStep >= 0 && tourSteps[tourStep] && (
+          <TourOverlay
+            step={tourSteps[tourStep]}
+            index={tourStep}
+            total={tourSteps.length}
+            onNext={nextStep}
+            onPrev={prevStep}
+            onClose={endTour}
+          />
+        )}
+        {tourPromptOpen && tourStep < 0 && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center">
+            <div
+              className="absolute inset-0 bg-zinc-950/75 backdrop-blur-sm"
+              onClick={declineTour}
+            />
+            <div className="relative w-[360px] rounded-2xl bg-zinc-900 border border-violet-500/30 shadow-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center flex-shrink-0">
+                  <PlayCircle className="w-5 h-5 text-violet-400" />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-white leading-tight">Take the tour?</h3>
+                  <p className="text-xs text-zinc-500 mt-0.5">A quick walkthrough of the dashboard.</p>
+                </div>
+              </div>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-5">
+                We can walk you through the key features in about a minute. You can replay it anytime from the header.
+              </p>
+              <div className="flex items-center justify-end gap-2">
+                <button
+                  onClick={declineTour}
+                  className="text-xs font-medium text-zinc-300 bg-zinc-800/60 hover:bg-zinc-800 border border-white/10 px-3 py-2 rounded-lg transition-colors"
+                >
+                  No thanks
+                </button>
+                <button
+                  onClick={startTour}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-white bg-violet-500 hover:bg-violet-400 px-3 py-2 rounded-lg transition-colors"
+                >
+                  <PlayCircle className="w-3.5 h-3.5" /> Start tour
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         {/* Sidebar */}
-        <aside className="w-60 bg-zinc-900/60 border-r border-white/5 flex flex-col flex-shrink-0">
+        <aside data-tour="sidebar" className="w-60 bg-zinc-900/60 border-r border-white/5 flex flex-col flex-shrink-0">
           <div className="h-16 flex items-center px-5 border-b border-white/5">
             <Link to="/" className="flex items-center gap-2 font-bold tracking-tighter text-lg">
               <div className="bg-violet-500/10 p-1.5 rounded-lg border border-violet-500/20">
@@ -323,6 +653,12 @@ export default function DemoDashboard() {
                 placeholder="Search posts, bots, ratios..."
               />
             </div>
+            <button
+              onClick={startTour}
+              className="hidden lg:flex items-center gap-1.5 text-xs font-medium text-violet-200 bg-violet-500/10 hover:bg-violet-500/20 border border-violet-500/20 px-3 py-1.5 rounded-lg transition-colors"
+            >
+              <PlayCircle className="w-3.5 h-3.5" /> Take tour
+            </button>
             <button className="relative p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="Notifications">
               <Bell className="w-4 h-4 text-zinc-400" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-violet-500"></span>
@@ -368,7 +704,7 @@ export default function DemoDashboard() {
                     }
                   />
 
-                  <div className="grid grid-cols-4 gap-4">
+                  <div data-tour="stats" className="grid grid-cols-4 gap-4">
                     {stats.map((stat) => (
                       <div key={stat.label} className="rounded-xl bg-zinc-900/40 border border-white/5 p-4">
                         <p className="text-xs text-zinc-500 mb-1">{stat.label}</p>
@@ -380,7 +716,7 @@ export default function DemoDashboard() {
                     ))}
                   </div>
 
-                  <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
+                  <div data-tour="compose" className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                     <div className="flex items-center justify-between mb-3">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
                         <Sparkles className="w-4 h-4 text-violet-400" /> AI Compose
@@ -418,7 +754,7 @@ export default function DemoDashboard() {
                   </div>
 
                   <div className="grid grid-cols-3 gap-4">
-                    <div className="col-span-2 rounded-xl bg-zinc-900/40 border border-white/5 p-5 flex flex-col">
+                    <div data-tour="chart" className="col-span-2 rounded-xl bg-zinc-900/40 border border-white/5 p-5 flex flex-col">
                       <div className="flex items-center justify-between mb-4 gap-2">
                         <h2 className="text-sm font-medium text-zinc-300">Engagement Over Time</h2>
                         <div className="flex gap-1 text-xs">
@@ -450,7 +786,7 @@ export default function DemoDashboard() {
                         ))}
                       </div>
                     </div>
-                    <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
+                    <div data-tour="scheduled" className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                       <div className="flex items-center justify-between mb-3">
                         <h2 className="text-sm font-medium text-zinc-300">Scheduled Posts</h2>
                         <button
@@ -770,7 +1106,7 @@ export default function DemoDashboard() {
                     }
                   />
 
-                  <div className="grid grid-cols-4 gap-4">
+                  <div data-tour="bots" className="grid grid-cols-4 gap-4">
                     {botStats.map((s) => (
                       <div key={s.label} className="rounded-xl bg-zinc-900/40 border border-white/5 p-4">
                         <p className="text-xs text-zinc-500 mb-1">{s.label}</p>
@@ -948,6 +1284,7 @@ export default function DemoDashboard() {
                   />
 
                   <div
+                    data-tour="crisis"
                     className={`rounded-xl border p-5 flex items-center gap-4 transition-colors ${
                       crisisArmed
                         ? 'bg-red-500/10 border-red-500/20'
