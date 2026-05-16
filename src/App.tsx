@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Home from './pages/Home';
 import Trial from './pages/Trial';
@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DotGrid from './components/DotGrid';
+import { isAppSubdomain } from './lib/hosts';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -21,8 +22,26 @@ function ScrollToTop() {
   return null;
 }
 
-function AppLayout() {
+function AppShell() {
   const location = useLocation();
+
+  if (isAppSubdomain) {
+    const isDashboard = location.pathname === '/dashboard';
+    return (
+      <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-violet-500/30 relative overflow-hidden">
+        <ScrollToTop />
+        {!isDashboard && <DotGrid />}
+        <main className="relative z-10">
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/dashboard" element={<DemoDashboard />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+      </div>
+    );
+  }
+
   const isDashboard = location.pathname === '/dashboard';
   const hideFooter = isDashboard || location.pathname === '/payment' || location.pathname === '/login';
   const hideNavbar = isDashboard;
@@ -54,7 +73,7 @@ function AppLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppLayout />
+      <AppShell />
     </BrowserRouter>
   );
 }
