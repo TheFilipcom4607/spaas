@@ -1,0 +1,28 @@
+{
+  "redirects": [
+    {
+      "source": "/login",
+      "has": [{ "type": "host", "value": "getspaas.com" }],
+      "destination": "https://app.getspaas.com/",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard",
+      "has": [{ "type": "host", "value": "getspaas.com" }],
+      "destination": "https://app.getspaas.com/dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/login",
+      "has": [{ "type": "host", "value": "www.getspaas.com" }],
+      "destination": "https://app.getspaas.com/",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard",
+      "has": [{ "type": "host", "value": "www.getspaas.com" }],
+      "destination": "https://app.getspaas.com/dashboard",
+      "permanent": true
+    }
+  ]
+}

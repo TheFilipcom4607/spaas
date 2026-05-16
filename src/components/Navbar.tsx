@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { loginUrl } from '../lib/hosts';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Navbar() {
         <div className="flex items-center gap-6 text-sm font-medium text-zinc-400">
           <a href="/#features" className="hover:text-white transition-colors hidden md:block">Features</a>
           <Link to="/pricing" className="hover:text-white transition-colors hidden md:block">Pricing</Link>
-          <Link to="/login" className="hover:text-white transition-colors hidden md:block">Log in</Link>
+          <a href={loginUrl} className="hover:text-white transition-colors hidden md:block">Log in</a>
           <Link to="/pricing" className="bg-white text-zinc-950 px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-all font-semibold hover:scale-105 shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)]">
             Get Started
           </Link>
@@ -56,13 +57,13 @@ export default function Navbar() {
               >
                 Pricing
               </Link>
-              <Link
-                to="/login"
+              <a
+                href={loginUrl}
                 onClick={() => setIsOpen(false)}
                 className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-3 py-2.5 rounded-xl hover:bg-white/5"
               >
                 Log in
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

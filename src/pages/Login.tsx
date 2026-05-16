@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, AlertCircle, Loader2 } from 'lucide-react';
+import { marketingHomeUrl, marketingUrl } from '../lib/hosts';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -27,9 +28,9 @@ export default function Login() {
   return (
     <div className="flex flex-col items-center">
       <section className="w-full max-w-md md:max-w-xl mx-auto px-4 pt-20 md:pt-32 pb-24 relative z-10">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors group mb-12">
+        <a href={marketingHomeUrl} className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors group mb-12">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to homepage
-        </Link>
+        </a>
 
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-3">
@@ -92,7 +93,7 @@ export default function Login() {
 
         <p className="text-center text-zinc-500 text-sm mt-8">
           Don't have an account?{' '}
-          <Link to="/trial" className="text-violet-400 hover:text-violet-300 transition-colors font-medium">Start a free trial</Link>
+          <a href={marketingUrl('/trial')} className="text-violet-400 hover:text-violet-300 transition-colors font-medium">Start a free trial</a>
         </p>
       </section>
     </div>
