@@ -99,44 +99,41 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Why choose SPaaS?</h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">Stop paying social media managers to post boring corporate updates. Let our algorithms handle the engagement farming.</p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          {...fadeInView(20, 0.5)}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           <FeatureCard
             icon={<MessageSquareWarning className="w-6 h-6" />}
             title="Context-Aware Trolling"
             description="Our NLP models analyze trending topics and automatically generate controversial takes to maximize quote tweets and replies."
-            index={0}
           />
           <FeatureCard
             icon={<BarChart3 className="w-6 h-6" />}
             title="Engagement Analytics"
             description="Track your ratio metrics in real-time. See exactly which posts are causing the most outrage and double down."
-            index={1}
           />
           <FeatureCard
             icon={<Globe className="w-6 h-6" />}
             title="Multi-Platform Synergy"
             description="Deploy identical low-effort memes across X, Threads, and LinkedIn simultaneously for maximum brand damage."
-            index={2}
           />
           <FeatureCard
             icon={<Zap className="w-6 h-6" />}
             title="Lightning Fast Ratios"
             description="Our distributed network of bot accounts ensures your competitors get ratioed within milliseconds of posting."
-            index={3}
           />
           <FeatureCard
             icon={<ShieldCheck className="w-6 h-6" />}
             title="PR Crisis Mode"
             description="Automatically issue generic, non-apology notes app screenshots when a shitpost goes slightly too far."
-            index={4}
           />
           <FeatureCard
             icon={<Users className="w-6 h-6" />}
             title="Cult Building"
             description="Transform your passive customers into a rabid fanbase ready to defend your brand's honor in the replies."
-            index={5}
           />
-        </div>
+        </motion.div>
       </section>
 
       {/* Social Proof */}
@@ -297,17 +294,16 @@ function StatCounter({ prefix = '', target, decimals = 0, suffix }: { prefix?: s
   );
 }
 
-function FeatureCard({ icon, title, description, index }: { icon: React.ReactNode, title: string, description: string, index: number }) {
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
   return (
-    <motion.div
-      {...fadeInView(16, 0.35, index * 0.06)}
-      className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:border-violet-500/30 hover:bg-zinc-900/60 transition-all duration-300 md:backdrop-blur-sm relative z-10"
+    <div
+      className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:border-violet-500/30 hover:bg-zinc-900/60 transition-colors duration-300 md:backdrop-blur-sm relative z-10"
     >
-      <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center mb-6 border border-violet-500/20 group-hover:scale-110 group-hover:bg-violet-500/20 transition-all duration-300">
+      <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center mb-6 border border-violet-500/20 group-hover:bg-violet-500/20 transition-colors duration-300">
         {icon}
       </div>
       <h3 className="text-xl font-semibold mb-3 text-zinc-100">{title}</h3>
       <p className="text-zinc-400 text-sm leading-relaxed">{description}</p>
-    </motion.div>
+    </div>
   );
 }

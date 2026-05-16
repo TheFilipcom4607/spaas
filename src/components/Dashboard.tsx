@@ -108,9 +108,9 @@ export default function Dashboard() {
               {/* Chart + Scheduled */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {/* Bar chart */}
-                <div className="col-span-2 rounded-xl bg-zinc-800/50 border border-white/5 p-4">
+                <div className="col-span-2 rounded-xl bg-zinc-800/50 border border-white/5 p-4 flex flex-col">
                   <p className="text-sm font-medium text-zinc-300 mb-4">Engagement Over Time</p>
-                  <div className="h-32 flex items-end gap-1.5">
+                  <div className="flex-1 min-h-32 flex items-end gap-1.5">
                     {barHeights.map((h, i) => (
                       <div
                         key={i}
