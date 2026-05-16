@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useLayoutEffect } from 'react';
 import { TrendingUp, Clock, Heart, Repeat2, MessageCircle, Lock, RotateCw } from 'lucide-react';
 import { motion } from 'motion/react';
 import { isMobile } from '../lib/motion';
@@ -34,7 +34,7 @@ export default function Dashboard() {
   const [scale, setScale] = useState(1);
   const [innerHeight, setInnerHeight] = useState<number | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const update = () => {
       if (containerRef.current) {
         setScale(Math.min(containerRef.current.offsetWidth / DASHBOARD_WIDTH, 1));
@@ -46,12 +46,11 @@ export default function Dashboard() {
     update();
     const ro = new ResizeObserver(update);
     if (innerRef.current) ro.observe(innerRef.current);
-    window.addEventListener('resize', update);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', update);
-    };
+    if (containerRef.current) ro.observe(containerRef.current);
+    return () => ro.disconnect();
   }, []);
+
+  const scaledHeight = innerHeight != null ? innerHeight * scale : undefined;
 
   return (
     <section className="w-full max-w-5xl mx-auto px-4 pb-16">
@@ -64,7 +63,8 @@ export default function Dashboard() {
           transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
         })}
         style={{
-          height: innerHeight != null && scale < 1 ? innerHeight * scale : undefined,
+          height: scaledHeight,
+          overflow: 'hidden',
         }}
       >
         <div

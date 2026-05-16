@@ -4,8 +4,8 @@ import { Loader2, ArrowLeft, ExternalLink } from 'lucide-react';
 
 const steps = [
   { title: 'Preparing secure checkout...', subtitle: 'Please do not close this window.' },
-  { title: 'Verifying card details...', subtitle: 'Contacting your issuing bank.' },
-  { title: 'Charging $1,247.00...', subtitle: 'Finalizing your subscription.' },
+  { title: 'Provisioning your account...', subtitle: 'Spinning up your bot operators.' },
+  { title: 'Loading payment form...', subtitle: 'Almost there.' },
 ];
 
 const STEP_MS = 1500;
