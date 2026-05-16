@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Sparkles, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Sparkles, ChevronDown, Loader2 } from 'lucide-react';
 
   const platforms = ['X (Twitter)', 'LinkedIn', 'Threads', 'Reddit', 'Bluesky', 'Instagram'];
 
 export default function Trial() {
   const navigate = useNavigate();
   const [aggression, setAggression] = useState(5);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/payment');
+    if (submitting) return;
+    setSubmitting(true);
+    setTimeout(() => navigate('/payment'), 1200);
   };
 
   return (
@@ -115,9 +118,18 @@ export default function Trial() {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-white text-zinc-950 py-4 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2"
+            disabled={submitting}
+            className="w-full bg-white text-zinc-950 py-4 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed"
           >
-            Start Generating <Sparkles className="w-5 h-5" />
+            {submitting ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" /> Provisioning your bot army...
+              </>
+            ) : (
+              <>
+                Start Generating <Sparkles className="w-5 h-5" />
+              </>
+            )}
           </button>
 
           <p className="text-center text-xs text-zinc-600">

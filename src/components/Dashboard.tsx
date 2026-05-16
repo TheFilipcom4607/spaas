@@ -1,18 +1,18 @@
 import { useRef, useState, useEffect } from 'react';
-import { TrendingUp, Clock, Heart, Repeat2, MessageCircle } from 'lucide-react';
+import { TrendingUp, Clock, Heart, Repeat2, MessageCircle, Lock, RotateCw } from 'lucide-react';
 import { motion } from 'motion/react';
 import { isMobile } from '../lib/motion';
 
 const DASHBOARD_WIDTH = 960;
 
-const barHeights = [40, 55, 35, 70, 65, 80, 45, 90, 75, 60, 85, 95];
+const barHeights = [38, 52, 41, 67, 58, 73, 49, 81, 64, 88, 71, 79];
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
 const stats = [
-  { label: 'Posts Today', value: '847', change: '+23%' },
-  { label: 'Ratio Score', value: '94.7', change: '+5.2' },
-  { label: 'Avg. Engagement', value: '12.4K', change: '+18%' },
-  { label: 'Bots Active', value: '8,291', change: 'nominal' },
+  { label: 'Posts Today', value: '843', change: '+18.4%' },
+  { label: 'Ratio Score', value: '94.3', change: '+5.1' },
+  { label: 'Avg. Engagement', value: '12.6K', change: '+21.7%' },
+  { label: 'Bots Active', value: '8,127', change: 'nominal' },
 ];
 
 const scheduled = [
@@ -30,18 +30,27 @@ const feed = [
 
 export default function Dashboard() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const [innerHeight, setInnerHeight] = useState<number | null>(null);
 
   useEffect(() => {
-    const updateScale = () => {
+    const update = () => {
       if (containerRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        setScale(Math.min(containerWidth / DASHBOARD_WIDTH, 1));
+        setScale(Math.min(containerRef.current.offsetWidth / DASHBOARD_WIDTH, 1));
+      }
+      if (innerRef.current) {
+        setInnerHeight(innerRef.current.offsetHeight);
       }
     };
-    updateScale();
-    window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
+    update();
+    const ro = new ResizeObserver(update);
+    if (innerRef.current) ro.observe(innerRef.current);
+    window.addEventListener('resize', update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   return (
@@ -54,13 +63,16 @@ export default function Dashboard() {
           viewport: { once: true, amount: 0.1 },
           transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
         })}
+        style={{
+          height: innerHeight != null && scale < 1 ? innerHeight * scale : undefined,
+        }}
       >
         <div
+          ref={innerRef}
           style={{
             width: DASHBOARD_WIDTH,
             transform: `scale(${scale})`,
             transformOrigin: 'top left',
-            marginBottom: scale < 1 ? `${-(1 - scale) * DASHBOARD_WIDTH * 0.65}px` : undefined,
           }}
         >
           <div className="rounded-2xl bg-zinc-900/60 border border-white/5 overflow-hidden shadow-2xl backdrop-blur-sm">
@@ -71,7 +83,11 @@ export default function Dashboard() {
                 <span className="w-3 h-3 rounded-full bg-yellow-500/70"></span>
                 <span className="w-3 h-3 rounded-full bg-green-500/70"></span>
               </div>
-              <span className="text-xs text-zinc-500 flex-1 text-center">app.getspaas.com/dashboard</span>
+              <div className="flex-1 flex items-center justify-center gap-1.5 text-xs text-zinc-500">
+                <Lock className="w-3 h-3 text-zinc-600" />
+                <span>app.getspaas.com/dashboard</span>
+              </div>
+              <RotateCw className="w-3.5 h-3.5 text-zinc-600" />
             </div>
 
             {/* Dashboard body */}

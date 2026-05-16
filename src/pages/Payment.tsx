@@ -2,24 +2,36 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Loader2, ArrowLeft, ExternalLink } from 'lucide-react';
 
+const steps = [
+  { title: 'Preparing secure checkout...', subtitle: 'Please do not close this window.' },
+  { title: 'Verifying card details...', subtitle: 'Contacting your issuing bank.' },
+  { title: 'Charging $1,247.00...', subtitle: 'Finalizing your subscription.' },
+];
+
+const STEP_MS = 1500;
+
 export default function Joke() {
+  const [step, setStep] = useState(0);
   const [isPreparing, setIsPreparing] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsPreparing(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (step < steps.length - 1) {
+      const t = setTimeout(() => setStep(step + 1), STEP_MS);
+      return () => clearTimeout(t);
+    }
+    const t = setTimeout(() => setIsPreparing(false), STEP_MS);
+    return () => clearTimeout(t);
+  }, [step]);
 
   if (isPreparing) {
+    const { title, subtitle } = steps[step];
     return (
       <div className="h-[calc(100svh-4rem)] flex flex-col items-center justify-center px-4 text-center relative z-10">
         <Loader2 className="w-12 h-12 text-violet-500 animate-spin mb-6" />
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-200">
-          Preparing secure checkout...
+          {title}
         </h2>
-        <p className="text-zinc-500 mt-2">Please do not close this window.</p>
+        <p className="text-zinc-500 mt-2">{subtitle}</p>
       </div>
     );
   }

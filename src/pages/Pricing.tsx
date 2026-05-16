@@ -60,7 +60,7 @@ const plans = [
 const faqs = [
   {
     question: 'Can I cancel anytime?',
-    answer: 'Absolutely. You can cancel your subscription at any time from your dashboard with zero penalties or hidden fees. If you cancel mid-cycle, you\'ll retain access for the remainder of your billing period.',
+    answer: 'Yes. One click, no questions, no exit survey.',
   },
   {
     question: 'Do you offer annual billing?',
@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     question: 'Is there a free trial?',
-    answer: 'Every plan includes a 14-day free trial with full access to all features in that tier. No credit card is required to start. At the end of your trial, you can choose to subscribe or your account will be gracefully downgraded.',
+    answer: '14 days, all features, no card required.',
   },
   {
     question: 'How does the bot army work?',

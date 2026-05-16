@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, AlertCircle, Loader2 } from 'lucide-react';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -14,6 +15,10 @@ export default function Login() {
     setLoading(true);
 
     setTimeout(() => {
+      if (email.trim().toLowerCase() === 'demo@getspaas.com' && password === 'demo') {
+        navigate('/payment');
+        return;
+      }
       setLoading(false);
       setError('No account found with those credentials. Please check your email and password and try again.');
     }, 1500);
@@ -80,6 +85,10 @@ export default function Login() {
             )}
           </button>
         </form>
+
+        <p className="text-center text-zinc-600 text-xs mt-6">
+          Tour the dashboard with <span className="text-zinc-400 font-mono">demo@getspaas.com</span> / <span className="text-zinc-400 font-mono">demo</span>
+        </p>
 
         <p className="text-center text-zinc-500 text-sm mt-8">
           Don't have an account?{' '}
