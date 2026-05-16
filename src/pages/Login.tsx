@@ -16,7 +16,7 @@ export default function Login() {
 
     setTimeout(() => {
       if (email.trim().toLowerCase() === 'demo@getspaas.com' && password === 'demo') {
-        navigate('/payment');
+        navigate('/dashboard');
         return;
       }
       setLoading(false);
