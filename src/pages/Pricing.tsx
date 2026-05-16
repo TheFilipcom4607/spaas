@@ -7,7 +7,7 @@ import { fadeInView } from '../lib/motion';
 const plans = [
   {
     name: 'Starter',
-    price: '$49',
+    price: '$249',
     period: '/mo',
     description: 'For small teams getting started.',
     features: [
@@ -22,7 +22,7 @@ const plans = [
   },
   {
     name: 'Pro',
-    price: '$149',
+    price: '$899',
     period: '/mo',
     description: 'For brands ready to scale their presence.',
     features: [
