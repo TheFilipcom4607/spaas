@@ -510,6 +510,14 @@ export default function DemoDashboard() {
   const [tourStep, setTourStep] = useState<number>(-1);
   const [tourPromptOpen, setTourPromptOpen] = useState(true);
 
+  useEffect(() => {
+    const previous = document.title;
+    document.title = 'SPaaS Dashboard';
+    return () => {
+      document.title = previous;
+    };
+  }, []);
+
   const startTour = () => {
     setTourPromptOpen(false);
     setActive('Overview');
@@ -1410,7 +1418,7 @@ export default function DemoDashboard() {
                           <span className="text-sm font-semibold text-violet-300">Pro</span>
                           <span className="text-xs text-zinc-500">$899/mo</span>
                         </div>
-                        <p className="text-xs text-zinc-500">Up to 10,000 bots · 50K posts/mo · Crisis Mode included</p>
+                        <p className="text-xs text-zinc-500">Up to 10,000 bots · Unlimited posts · Crisis Mode included</p>
                       </div>
                       <div className="flex gap-2">
                         <button className="flex-1 text-xs font-medium bg-zinc-800/60 hover:bg-zinc-800 border border-white/5 px-3 py-2 rounded-lg text-zinc-200 transition-colors">
