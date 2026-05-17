@@ -33,9 +33,29 @@ export default function DemoHint() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}
           transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="fixed z-50 left-4 right-4 bottom-4 md:left-auto md:right-6 md:bottom-6 md:max-w-sm"
+          className="fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6"
         >
-          <div className="relative rounded-2xl bg-zinc-900/95 border border-violet-500/30 shadow-[0_10px_40px_-10px_rgba(139,92,246,0.4)] md:backdrop-blur-xl p-4 pr-10">
+          {/* Mobile: compact corner pill */}
+          <div className="md:hidden flex items-center gap-0.5 rounded-full bg-zinc-900/95 border border-violet-500/30 shadow-[0_10px_30px_-10px_rgba(139,92,246,0.5)] pl-3 pr-1 py-1">
+            <a
+              href={loginUrl}
+              className="flex items-center gap-1.5 text-xs font-medium text-zinc-100 py-1 pr-1"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-violet-300" />
+              Try the demo
+            </a>
+            <button
+              type="button"
+              onClick={dismiss}
+              aria-label="Dismiss hint"
+              className="p-1.5 rounded-full text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-colors"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          {/* Desktop: expanded card */}
+          <div className="hidden md:block md:max-w-sm relative rounded-2xl bg-zinc-900/95 border border-violet-500/30 shadow-[0_10px_40px_-10px_rgba(139,92,246,0.4)] backdrop-blur-xl p-4 pr-10">
             <button
               type="button"
               onClick={dismiss}
