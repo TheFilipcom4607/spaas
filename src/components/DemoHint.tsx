@@ -38,7 +38,7 @@ export default function DemoHint() {
           {/* Mobile: compact corner pill */}
           <div className="md:hidden flex items-center gap-0.5 rounded-full bg-zinc-900/95 border border-violet-500/30 shadow-[0_10px_30px_-10px_rgba(139,92,246,0.5)] pl-3 pr-1 py-1">
             <a
-              href={loginUrl}
+              href={`${loginUrl}?demo=1`}
               className="flex items-center gap-1.5 text-xs font-medium text-zinc-100 py-1 pr-1"
             >
               <Sparkles className="w-3.5 h-3.5 text-violet-300" />
@@ -75,7 +75,7 @@ export default function DemoHint() {
                 </p>
                 <div className="mt-3 flex items-center gap-2">
                   <a
-                    href={loginUrl}
+                    href={`${loginUrl}?demo=1`}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-zinc-950 text-xs font-semibold hover:bg-zinc-200 transition-colors"
                   >
                     Open demo

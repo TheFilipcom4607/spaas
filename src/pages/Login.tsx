@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, AlertCircle, Loader2 } from 'lucide-react';
 import { marketingHomeUrl, marketingUrl, isAppSubdomain } from '../lib/hosts';
 
 export default function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [searchParams] = useSearchParams();
+  const isDemo = searchParams.get('demo') === '1';
+  const [email, setEmail] = useState(isDemo ? 'demo@getspaas.com' : '');
+  const [password, setPassword] = useState(isDemo ? 'demo' : '');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
