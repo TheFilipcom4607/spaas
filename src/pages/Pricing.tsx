@@ -4,11 +4,20 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { fadeInView } from '../lib/motion';
 
-const plans = [
+type Plan = {
+  name: string;
+  monthlyPrice: number | null;
+  customLabel?: string;
+  description: string;
+  features: string[];
+  cta: string;
+  highlighted: boolean;
+};
+
+const plans: Plan[] = [
   {
     name: 'Starter',
-    price: '$249',
-    period: '/mo',
+    monthlyPrice: 249,
     description: 'For small teams getting started.',
     features: [
       '10 shitposts per day',
@@ -22,8 +31,7 @@ const plans = [
   },
   {
     name: 'Pro',
-    price: '$899',
-    period: '/mo',
+    monthlyPrice: 899,
     description: 'For brands ready to scale their presence.',
     features: [
       'Unlimited shitposts',
@@ -40,8 +48,8 @@ const plans = [
   },
   {
     name: 'Enterprise',
-    price: 'Custom',
-    period: '/month',
+    monthlyPrice: null,
+    customLabel: 'Custom',
     description: 'For organizations who want to fire their social media teams.',
     features: [
       'Everything in Pro',
@@ -84,7 +92,12 @@ const faqs = [
   },
 ];
 
+type Billing = 'monthly' | 'yearly';
+
 export default function Pricing() {
+  const [billing, setBilling] = useState<Billing>('monthly');
+  const isYearly = billing === 'yearly';
+
   return (
     <div className="flex flex-col items-center">
       <section className="w-full max-w-6xl mx-auto px-4 pt-20 md:pt-32 pb-12 md:pb-24 text-center relative">
@@ -104,69 +117,94 @@ export default function Pricing() {
           Simple, <span className="text-violet-400">transparent</span> pricing
         </h1>
         <p
-          className="animate-fade-up text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-16"
+          className="animate-fade-up text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10"
           style={{ animationDelay: '0.2s' }}
         >
           Choose the plan that fits your team. All plans include a 14-day free trial.
         </p>
 
+        <BillingToggle billing={billing} onChange={setBilling} />
+
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              {...fadeInView(16, 0.35, index * 0.07)}
-              className={`relative flex flex-col p-8 rounded-3xl border md:backdrop-blur-sm text-left transition-all duration-300 ${
-                plan.highlighted
-                  ? 'bg-violet-500/10 border-violet-500/30 shadow-[0_0_60px_-15px_rgba(139,92,246,0.3)]'
-                  : 'bg-zinc-900/40 border-white/5 hover:border-white/10'
-              }`}
-            >
-              {plan.highlighted && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold bg-violet-500 text-white px-4 py-1 rounded-full shadow-lg">
-                  Most Popular
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mt-12">
+          {plans.map((plan, index) => {
+            const displayPrice =
+              plan.monthlyPrice !== null
+                ? `$${Math.round(plan.monthlyPrice * (isYearly ? 0.8 : 1))}`
+                : plan.customLabel ?? 'Custom';
+            const period = plan.monthlyPrice !== null ? '/mo' : '';
+            const yearlyTotal =
+              plan.monthlyPrice !== null
+                ? Math.round(plan.monthlyPrice * 0.8 * 12)
+                : null;
+
+            return (
+              <motion.div
+                key={plan.name}
+                {...fadeInView(16, 0.35, index * 0.07)}
+                className={`relative flex flex-col p-8 rounded-3xl border md:backdrop-blur-sm text-left transition-all duration-300 ${
+                  plan.highlighted
+                    ? 'bg-violet-500/10 border-violet-500/30 shadow-[0_0_60px_-15px_rgba(139,92,246,0.3)]'
+                    : 'bg-zinc-900/40 border-white/5 hover:border-white/10'
+                }`}
+              >
+                {plan.highlighted && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold bg-violet-500 text-white px-4 py-1 rounded-full shadow-lg">
+                    Most Popular
+                  </div>
+                )}
+                <h3 className="text-xl font-bold text-zinc-100 mb-2">{plan.name}</h3>
+                <p className="text-zinc-500 text-sm mb-6">{plan.description}</p>
+                <div className="mb-8">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-5xl font-black text-white">{displayPrice}</span>
+                    {period && <span className="text-zinc-500 text-lg">{period}</span>}
+                  </div>
+                  <p className="text-zinc-500 text-xs mt-2 h-4">
+                    {isYearly && yearlyTotal !== null
+                      ? `Billed annually ($${yearlyTotal.toLocaleString()}/yr)`
+                      : plan.monthlyPrice !== null
+                        ? 'Billed monthly'
+                        : 'Tailored to your needs'}
+                  </p>
                 </div>
-              )}
-              <h3 className="text-xl font-bold text-zinc-100 mb-2">{plan.name}</h3>
-              <p className="text-zinc-500 text-sm mb-6">{plan.description}</p>
-              <div className="mb-8">
-                <span className="text-5xl font-black text-white">{plan.price}</span>
-                <span className="text-zinc-500 text-lg">{plan.period}</span>
-              </div>
-              <ul className="flex flex-col gap-3 mb-10 flex-1">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${plan.highlighted ? 'text-violet-400' : 'text-zinc-500'}`} />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              {plan.name === 'Enterprise' ? (
-                <a
-                  href="mailto:enterprise@getspaas.com"
-                  className="w-full py-3.5 rounded-full font-semibold text-center transition-all hover:scale-105 flex items-center justify-center gap-2 bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700 hover:border-white/20"
-                >
-                  {plan.cta} <ArrowRight className="w-4 h-4" />
-                </a>
-              ) : (
-                <Link
-                  to="/payment"
-                  className={`w-full py-3.5 rounded-full font-semibold text-center transition-all hover:scale-105 flex items-center justify-center gap-2 ${
-                    plan.highlighted
-                      ? 'bg-white text-zinc-950 hover:bg-zinc-200 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]'
-                      : 'bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700 hover:border-white/20'
-                  }`}
-                >
-                  {plan.cta} <ArrowRight className="w-4 h-4" />
-                </Link>
-              )}
-            </motion.div>
-          ))}
+                <ul className="flex flex-col gap-3 mb-10 flex-1">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-zinc-300">
+                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${plan.highlighted ? 'text-violet-400' : 'text-zinc-500'}`} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                {plan.name === 'Enterprise' ? (
+                  <Link
+                    to="/contact-sales"
+                    className="w-full py-3.5 rounded-full font-semibold text-center transition-all hover:scale-105 flex items-center justify-center gap-2 bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700 hover:border-white/20"
+                  >
+                    {plan.cta} <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/payment"
+                    className={`w-full py-3.5 rounded-full font-semibold text-center transition-all hover:scale-105 flex items-center justify-center gap-2 ${
+                      plan.highlighted
+                        ? 'bg-white text-zinc-950 hover:bg-zinc-200 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]'
+                        : 'bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700 hover:border-white/20'
+                    }`}
+                  >
+                    {plan.cta} <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
 
         <div className="mt-20 text-center">
           <p className="text-zinc-500 text-sm">
-            All plans billed monthly. Cancel anytime.
+            {isYearly
+              ? 'All paid plans billed annually. Cancel anytime.'
+              : 'All paid plans billed monthly. Cancel anytime.'}
           </p>
         </div>
 
@@ -187,6 +225,55 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+    </div>
+  );
+}
+
+function BillingToggle({
+  billing,
+  onChange,
+}: {
+  billing: Billing;
+  onChange: (b: Billing) => void;
+}) {
+  const isYearly = billing === 'yearly';
+  return (
+    <div className="animate-fade-up relative z-10 inline-flex items-center gap-3 mx-auto" style={{ animationDelay: '0.25s' }}>
+      <div className="relative inline-flex items-center p-1 rounded-full bg-zinc-900/80 border border-white/10 md:backdrop-blur-md shadow-xl">
+        <span
+          aria-hidden
+          className={`absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-white transition-transform duration-300 ease-out ${
+            isYearly ? 'translate-x-full' : 'translate-x-0'
+          }`}
+        />
+        <button
+          type="button"
+          onClick={() => onChange('monthly')}
+          aria-pressed={!isYearly}
+          className={`relative z-10 px-5 py-2 text-sm font-semibold rounded-full transition-colors ${
+            isYearly ? 'text-zinc-400 hover:text-zinc-200' : 'text-zinc-950'
+          }`}
+        >
+          Monthly
+        </button>
+        <button
+          type="button"
+          onClick={() => onChange('yearly')}
+          aria-pressed={isYearly}
+          className={`relative z-10 px-5 py-2 text-sm font-semibold rounded-full transition-colors flex items-center gap-2 ${
+            isYearly ? 'text-zinc-950' : 'text-zinc-400 hover:text-zinc-200'
+          }`}
+        >
+          Yearly
+          <span
+            className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full transition-colors ${
+              isYearly ? 'bg-violet-500/20 text-violet-700' : 'bg-violet-500/15 text-violet-300'
+            }`}
+          >
+            -20%
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

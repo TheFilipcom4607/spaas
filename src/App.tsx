@@ -9,6 +9,7 @@ import DemoDashboard from './pages/DemoDashboard';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Contact from './pages/Contact';
+import ContactSales from './pages/ContactSales';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DotGrid from './components/DotGrid';
@@ -63,6 +64,7 @@ function AppShell() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-sales" element={<ContactSales />} />
         </Routes>
       </main>
       {!hideFooter && <Footer />}
