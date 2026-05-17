@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, AlertCircle, Loader2 } from 'lucide-react';
-import { marketingHomeUrl, marketingUrl } from '../lib/hosts';
+import { marketingHomeUrl, marketingUrl, isAppSubdomain } from '../lib/hosts';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -26,13 +26,13 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <section className="w-full max-w-md md:max-w-xl mx-auto px-4 pt-20 md:pt-32 pb-24 relative z-10">
-        <a href={marketingHomeUrl} className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors group mb-12">
+    <div className={`${isAppSubdomain ? 'min-h-screen' : 'min-h-[calc(100vh-4rem)]'} flex items-center justify-center px-4 py-8`}>
+      <section className="w-full max-w-md md:max-w-xl relative z-10">
+        <a href={marketingHomeUrl} className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors group mb-8">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to homepage
         </a>
 
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-3">
             Welcome <span className="text-violet-400">back</span>
           </h1>
