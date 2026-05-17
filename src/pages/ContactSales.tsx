@@ -140,7 +140,7 @@ export default function ContactSales() {
                   <Loader2 className="w-4 h-4 animate-spin" /> Sending…
                 </>
               ) : (
-                'Request a demo'
+                'Get a custom quote'
               )}
             </button>
 

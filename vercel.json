@@ -24,5 +24,8 @@
       "destination": "https://app.getspaas.com/dashboard",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
