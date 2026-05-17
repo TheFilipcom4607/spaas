@@ -239,7 +239,7 @@ function BillingToggle({
   const isYearly = billing === 'yearly';
   return (
     <div className="animate-fade-up relative z-10 inline-flex items-center gap-3 mx-auto" style={{ animationDelay: '0.25s' }}>
-      <div className="relative inline-flex items-center p-1 rounded-full bg-zinc-900/80 border border-white/10 md:backdrop-blur-md shadow-xl">
+      <div className="relative inline-grid grid-cols-2 p-1 rounded-full bg-zinc-900/80 border border-white/10 md:backdrop-blur-md shadow-xl">
         <span
           aria-hidden
           className={`absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-white transition-transform duration-300 ease-out ${
@@ -250,7 +250,7 @@ function BillingToggle({
           type="button"
           onClick={() => onChange('monthly')}
           aria-pressed={!isYearly}
-          className={`relative z-10 px-5 py-2 text-sm font-semibold rounded-full transition-colors ${
+          className={`relative z-10 px-5 py-2 text-sm font-semibold rounded-full transition-colors flex items-center justify-center ${
             isYearly ? 'text-zinc-400 hover:text-zinc-200' : 'text-zinc-950'
           }`}
         >
@@ -260,7 +260,7 @@ function BillingToggle({
           type="button"
           onClick={() => onChange('yearly')}
           aria-pressed={isYearly}
-          className={`relative z-10 px-5 py-2 text-sm font-semibold rounded-full transition-colors flex items-center gap-2 ${
+          className={`relative z-10 px-5 py-2 text-sm font-semibold rounded-full transition-colors flex items-center justify-center gap-2 ${
             isYearly ? 'text-zinc-950' : 'text-zinc-400 hover:text-zinc-200'
           }`}
         >
