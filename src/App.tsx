@@ -13,6 +13,7 @@ import ContactSales from './pages/ContactSales';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DotGrid from './components/DotGrid';
+import DemoHint from './components/DemoHint';
 import { isAppSubdomain } from './lib/hosts';
 
 function ScrollToTop() {
@@ -47,6 +48,7 @@ function AppShell() {
   const hideFooter = isDashboard || location.pathname === '/payment' || location.pathname === '/login';
   const hideNavbar = isDashboard;
   const hideDotGrid = isDashboard;
+  const showDemoHint = !isDashboard && !['/login', '/payment', '/contact-sales'].includes(location.pathname);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-violet-500/30 relative overflow-hidden">
@@ -68,6 +70,7 @@ function AppShell() {
         </Routes>
       </main>
       {!hideFooter && <Footer />}
+      {showDemoHint && <DemoHint />}
     </div>
   );
 }
