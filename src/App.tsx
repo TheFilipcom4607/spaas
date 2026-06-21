@@ -30,7 +30,7 @@ function AppShell() {
   if (isAppSubdomain) {
     const isDashboard = location.pathname === '/dashboard';
     return (
-      <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-violet-500/30 relative overflow-hidden">
+      <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-emerald-500/30 relative overflow-hidden">
         <ScrollToTop />
         {!isDashboard && <DotGrid />}
         <main className="relative z-10">
@@ -51,7 +51,7 @@ function AppShell() {
   const showDemoHint = !isDashboard && !['/login', '/payment', '/contact-sales'].includes(location.pathname);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-violet-500/30 relative overflow-hidden">
+    <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-emerald-500/30 relative overflow-hidden">
       <ScrollToTop />
       {!hideDotGrid && <DotGrid />}
       {!hideNavbar && <Navbar />}

@@ -11,8 +11,8 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-zinc-950/90 md:bg-zinc-950/60 md:backdrop-blur-xl relative">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tighter group">
-          <div className="bg-violet-500/10 p-1.5 rounded-lg border border-violet-500/20 group-hover:bg-violet-500/20 transition-colors">
-            <Zap className="w-5 h-5 text-violet-400" />
+          <div className="bg-emerald-500/10 p-1.5 rounded-lg border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
+            <Zap className="w-5 h-5 text-emerald-400" />
           </div>
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400">SPaaS</span>
         </Link>

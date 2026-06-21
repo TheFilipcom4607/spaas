@@ -36,7 +36,7 @@ export default function Login() {
 
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-3">
-            Welcome <span className="text-violet-400">back</span>
+            Welcome <span className="text-emerald-400">back</span>
           </h1>
           <p className="text-zinc-400 md:text-base text-sm">Log in to your SPaaS dashboard.</p>
         </div>
@@ -51,7 +51,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@company.com"
-              className="w-full px-5 py-3.5 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm md:text-base"
+              className="w-full px-5 py-3.5 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/30 transition-all text-sm md:text-base"
             />
           </div>
           <div>
@@ -63,7 +63,7 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full px-5 py-3.5 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all text-sm md:text-base"
+              className="w-full px-5 py-3.5 rounded-xl bg-zinc-900/60 border border-white/10 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/30 transition-all text-sm md:text-base"
             />
           </div>
 
@@ -95,7 +95,7 @@ export default function Login() {
 
         <p className="text-center text-zinc-500 text-sm mt-8">
           Don't have an account?{' '}
-          <a href={marketingUrl('/trial')} className="text-violet-400 hover:text-violet-300 transition-colors font-medium">Start a free trial</a>
+          <a href={marketingUrl('/trial')} className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium">Start a free trial</a>
         </p>
       </section>
     </div>

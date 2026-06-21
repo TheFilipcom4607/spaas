@@ -27,7 +27,7 @@ export default function Joke() {
     const { title, subtitle } = steps[step];
     return (
       <div className="h-[calc(100svh-4rem)] flex flex-col items-center justify-center px-4 text-center relative z-10">
-        <Loader2 className="w-12 h-12 text-violet-500 animate-spin mb-6" />
+        <Loader2 className="w-12 h-12 text-emerald-500 animate-spin mb-6" />
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-200">
           {title}
         </h2>
@@ -39,7 +39,7 @@ export default function Joke() {
   return (
     <div className="h-[calc(100svh-4rem)] flex flex-col items-center justify-center px-4 text-center relative z-10">
       {/* Background glow */}
-      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
       <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 uppercase text-white">
         It's a joke, <br className="md:hidden" />what did you expect?
@@ -49,7 +49,7 @@ export default function Joke() {
         href="https://thefilip.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-all hover:scale-105 mb-12 shadow-[0_0_40px_-10px_rgba(139,92,246,0.5)]"
+        className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-all hover:scale-105 mb-12 shadow-[0_0_40px_-10px_rgba(16, 185, 129,0.5)]"
       >
         Go see my other stuff at thefilip.com <ExternalLink className="w-5 h-5" />
       </a>

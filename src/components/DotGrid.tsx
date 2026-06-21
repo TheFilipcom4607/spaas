@@ -58,10 +58,10 @@ export default function DotGrid() {
             currentRadius = radius + scale * 2.5;
             opacity = 0.15 + scale * 0.8;
             
-            // Glow color (violet-500: 139, 92, 246)
-            r = 63 + (139 - 63) * scale;
-            g = 63 + (92 - 63) * scale;
-            b = 70 + (246 - 70) * scale;
+            // Glow color (emerald-500: 16, 185, 129)
+            r = 63 + (16 - 63) * scale;
+            g = 63 + (185 - 63) * scale;
+            b = 70 + (129 - 70) * scale;
           }
 
           ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;

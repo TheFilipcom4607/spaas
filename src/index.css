@@ -36,7 +36,7 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-runnable-track {
   height: 6px;
   border-radius: 9999px;
-  background: linear-gradient(to right, rgb(139, 92, 246) 0%, rgb(139, 92, 246) var(--range-pct, 50%), rgb(63, 63, 70) var(--range-pct, 50%), rgb(63, 63, 70) 100%);
+  background: linear-gradient(to right, rgb(16, 185, 129) 0%, rgb(16, 185, 129) var(--range-pct, 50%), rgb(63, 63, 70) var(--range-pct, 50%), rgb(63, 63, 70) 100%);
 }
 
 input[type="range"]::-moz-range-track {
@@ -48,7 +48,7 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-moz-range-progress {
   height: 6px;
   border-radius: 9999px;
-  background: rgb(139, 92, 246);
+  background: rgb(16, 185, 129);
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -59,7 +59,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: white;
   margin-top: -7px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -69,7 +69,7 @@ input[type="range"]::-moz-range-thumb {
   background: white;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
 
 input[type="checkbox"] {
@@ -86,8 +86,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background: rgb(139, 92, 246);
-  border-color: rgb(139, 92, 246);
+  background: rgb(16, 185, 129);
+  border-color: rgb(16, 185, 129);
 }
 
 input[type="checkbox"]:checked::after {

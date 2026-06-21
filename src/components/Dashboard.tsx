@@ -114,7 +114,7 @@ export default function Dashboard() {
                     {barHeights.map((h, i) => (
                       <div
                         key={i}
-                        className="w-full rounded-t-sm bg-violet-500/60"
+                        className="w-full rounded-t-sm bg-emerald-500/60"
                         style={{ height: `${h}%` }}
                       ></div>
                     ))}
@@ -133,8 +133,8 @@ export default function Dashboard() {
                     {scheduled.map((item, i) => (
                       <div key={i} className="rounded-lg bg-zinc-900/50 p-2.5">
                         <div className="flex items-center gap-2 mb-1">
-                          <Clock className="w-3 h-3 text-violet-400" />
-                          <span className="text-xs text-violet-400">{item.time}</span>
+                          <Clock className="w-3 h-3 text-emerald-400" />
+                          <span className="text-xs text-emerald-400">{item.time}</span>
                           <span className="text-[10px] text-zinc-600 ml-auto">{item.platform}</span>
                         </div>
                         <p className="text-xs text-zinc-400 line-clamp-2">{item.text}</p>
@@ -150,7 +150,7 @@ export default function Dashboard() {
                 <div className="grid grid-cols-3 gap-3">
                   {feed.map((item, i) => (
                     <div key={i} className="rounded-lg bg-zinc-900/50 p-3">
-                      <span className="text-[10px] font-medium text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20">{item.platform}</span>
+                      <span className="text-[10px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">{item.platform}</span>
                       <p className="text-xs text-zinc-400 mt-2 mb-3">{item.text}</p>
                       <div className="flex items-center gap-4 text-xs text-zinc-600">
                         <span className="flex items-center gap-1"><Heart className="w-3 h-3" /> {item.likes}</span>

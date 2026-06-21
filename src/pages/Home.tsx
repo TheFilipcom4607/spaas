@@ -39,19 +39,19 @@ export default function Home() {
       {/* Hero Section */}
       <section className="w-full max-w-5xl mx-auto px-4 pt-20 md:pt-32 pb-16 md:pb-24 text-center relative">
         {/* Background glow */}
-        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
         <div
           className="animate-fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 md:backdrop-blur-md shadow-xl"
         >
-          <span className="flex h-2 w-2 rounded-full bg-violet-500 animate-pulse"></span>
+          <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
           SPENGINE 3.0 is now live
         </div>
         <h1
           className="animate-fade-up text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight"
           style={{ animationDelay: '0.1s' }}
         >
-          <span className="text-violet-400">Shitposting</span> <br className="hidden md:block" />
+          <span className="text-emerald-400">Shitposting</span> <br className="hidden md:block" />
           as a Service
         </h1>
         <p
@@ -171,13 +171,13 @@ export default function Home() {
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, j) => (
-                  <span key={j} className="text-violet-400 text-lg leading-none">★</span>
+                  <span key={j} className="text-emerald-400 text-lg leading-none">★</span>
                 ))}
               </div>
               <p className="text-zinc-300 text-sm leading-relaxed flex-1">"{t.quote}"</p>
               <div>
                 <p className="text-zinc-200 font-medium text-sm">{t.name}</p>
-                <p className="text-zinc-500 text-xs mt-0.5">{t.title} · <span className="text-violet-400">{t.company}</span></p>
+                <p className="text-zinc-500 text-xs mt-0.5">{t.title} · <span className="text-emerald-400">{t.company}</span></p>
               </div>
             </motion.div>
           ))}
@@ -204,9 +204,9 @@ export default function Home() {
                 <th className="p-6 text-left text-zinc-500 font-medium w-1/4">Capability</th>
                 <th className="p-6 text-center font-semibold text-zinc-400 w-1/4">Doing It Yourself</th>
                 <th className="p-6 text-center font-semibold text-zinc-400 w-1/4">Hiring an Intern</th>
-                <th className="p-6 text-center w-1/4 bg-violet-500/10 border-l border-r border-violet-500/20">
-                  <span className="text-violet-300 font-bold">SPaaS</span>
-                  <span className="ml-2 text-xs bg-violet-500/20 text-violet-300 border border-violet-500/30 px-2 py-0.5 rounded-full">recommended</span>
+                <th className="p-6 text-center w-1/4 bg-emerald-500/10 border-l border-r border-emerald-500/20">
+                  <span className="text-emerald-300 font-bold">SPaaS</span>
+                  <span className="ml-2 text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full">recommended</span>
                 </th>
               </tr>
             </thead>
@@ -224,7 +224,7 @@ export default function Home() {
                   <td className="p-6 font-medium text-zinc-300">{row.label}</td>
                   <td className="p-6 text-center text-zinc-500">{row.diy}</td>
                   <td className="p-6 text-center text-zinc-500">{row.intern}</td>
-                  <td className="p-6 text-center font-semibold text-violet-300 bg-violet-500/10 border-l border-r border-violet-500/20 group-hover:bg-violet-500/[0.15] transition-colors">{row.spaas}</td>
+                  <td className="p-6 text-center font-semibold text-emerald-300 bg-emerald-500/10 border-l border-r border-emerald-500/20 group-hover:bg-emerald-500/[0.15] transition-colors">{row.spaas}</td>
                 </tr>
               ))}
             </tbody>
@@ -297,9 +297,9 @@ function StatCounter({ prefix = '', target, decimals = 0, suffix }: { prefix?: s
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
   return (
     <div
-      className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:border-violet-500/30 hover:bg-zinc-900/60 transition-colors duration-300 md:backdrop-blur-sm relative z-10"
+      className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:border-emerald-500/30 hover:bg-zinc-900/60 transition-colors duration-300 md:backdrop-blur-sm relative z-10"
     >
-      <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center mb-6 border border-violet-500/20 group-hover:bg-violet-500/20 transition-colors duration-300">
+      <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors duration-300">
         {icon}
       </div>
       <h3 className="text-xl font-semibold mb-3 text-zinc-100">{title}</h3>

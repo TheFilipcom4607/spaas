@@ -102,7 +102,7 @@ export default function Pricing() {
     <div className="flex flex-col items-center">
       <section className="w-full max-w-6xl mx-auto px-4 pt-20 md:pt-32 pb-12 md:pb-24 text-center relative">
         {/* Background glow */}
-        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
         <div
           className="animate-fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-xs font-medium text-zinc-300 mb-8 relative z-10 md:backdrop-blur-md shadow-xl"
@@ -114,7 +114,7 @@ export default function Pricing() {
           className="animate-fade-up text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight"
           style={{ animationDelay: '0.1s' }}
         >
-          Simple, <span className="text-violet-400">transparent</span> pricing
+          Simple, <span className="text-emerald-400">transparent</span> pricing
         </h1>
         <p
           className="animate-fade-up text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10"
@@ -144,12 +144,12 @@ export default function Pricing() {
                 {...fadeInView(16, 0.35, index * 0.07)}
                 className={`relative flex flex-col p-8 rounded-3xl border md:backdrop-blur-sm text-left transition-all duration-300 ${
                   plan.highlighted
-                    ? 'bg-violet-500/10 border-violet-500/30 shadow-[0_0_60px_-15px_rgba(139,92,246,0.3)]'
+                    ? 'bg-emerald-500/10 border-emerald-500/30 shadow-[0_0_60px_-15px_rgba(16, 185, 129,0.3)]'
                     : 'bg-zinc-900/40 border-white/5 hover:border-white/10'
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold bg-violet-500 text-white px-4 py-1 rounded-full shadow-lg">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold bg-emerald-500 text-white px-4 py-1 rounded-full shadow-lg">
                     Most Popular
                   </div>
                 )}
@@ -171,7 +171,7 @@ export default function Pricing() {
                 <ul className="flex flex-col gap-3 mb-10 flex-1">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm text-zinc-300">
-                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${plan.highlighted ? 'text-violet-400' : 'text-zinc-500'}`} />
+                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${plan.highlighted ? 'text-emerald-400' : 'text-zinc-500'}`} />
                       {feature}
                     </li>
                   ))}
@@ -267,7 +267,7 @@ function BillingToggle({
           Yearly
           <span
             className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full transition-colors ${
-              isYearly ? 'bg-violet-500/20 text-violet-700' : 'bg-violet-500/15 text-violet-300'
+              isYearly ? 'bg-emerald-500/20 text-emerald-700' : 'bg-emerald-500/15 text-emerald-300'
             }`}
           >
             -20%
@@ -287,7 +287,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left p-6 rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-violet-500/20 transition-all flex justify-between items-center gap-4"
+        className="w-full text-left p-6 rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-emerald-500/20 transition-all flex justify-between items-center gap-4"
       >
         <span className="text-base font-medium text-zinc-100">{question}</span>
         <ChevronDown className={`w-5 h-5 text-zinc-500 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />

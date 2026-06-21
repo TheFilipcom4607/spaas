@@ -97,7 +97,7 @@ const botStats = [
 ];
 
 const platformBreakdown = [
-  { name: 'X', value: 64, color: 'bg-violet-500' },
+  { name: 'X', value: 64, color: 'bg-emerald-500' },
   { name: 'LinkedIn', value: 21, color: 'bg-sky-500' },
   { name: 'Threads', value: 15, color: 'bg-emerald-500' },
 ];
@@ -186,7 +186,7 @@ function Dropdown({
               }}
               className={`w-full text-left px-3 py-1.5 text-xs transition-colors ${
                 opt === value
-                  ? 'bg-violet-500/15 text-violet-200'
+                  ? 'bg-emerald-500/15 text-emerald-200'
                   : 'text-zinc-300 hover:bg-white/5'
               }`}
             >
@@ -201,7 +201,7 @@ function Dropdown({
 
 function ActivityIcon({ tag }: { tag: string }) {
   const map: Record<string, { icon: typeof Bot; color: string; bg: string }> = {
-    auto: { icon: Bot, color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' },
+    auto: { icon: Bot, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
     shield: { icon: ShieldCheck, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
     send: { icon: Send, color: 'text-sky-400', bg: 'bg-sky-500/10 border-sky-500/20' },
     flame: { icon: Flame, color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' },
@@ -230,7 +230,7 @@ function Toggle({ on }: { on: boolean }) {
   return (
     <span
       className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-        on ? 'bg-violet-500' : 'bg-zinc-700'
+        on ? 'bg-emerald-500' : 'bg-zinc-700'
       }`}
     >
       <span
@@ -548,8 +548,8 @@ export default function DemoDashboard() {
     <>
       {/* Mobile gate */}
       <div className="md:hidden fixed inset-0 bg-zinc-950 text-zinc-50 flex flex-col items-center justify-center px-8 text-center z-50">
-        <div className="w-14 h-14 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-6">
-          <Monitor className="w-7 h-7 text-violet-400" />
+        <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
+          <Monitor className="w-7 h-7 text-emerald-400" />
         </div>
         <h1 className="text-2xl font-bold tracking-tight mb-3">Open on desktop</h1>
         <p className="text-sm text-zinc-400 leading-relaxed max-w-xs mb-8">
@@ -615,8 +615,8 @@ export default function DemoDashboard() {
         <aside data-tour="sidebar" className="w-60 bg-zinc-900/60 border-r border-white/5 flex flex-col flex-shrink-0">
           <div className="h-16 flex items-center px-5 border-b border-white/5">
             <Link to="/" className="flex items-center gap-2 font-bold tracking-tighter text-lg">
-              <div className="bg-violet-500/10 p-1.5 rounded-lg border border-violet-500/20">
-                <Zap className="w-4 h-4 text-violet-400" />
+              <div className="bg-emerald-500/10 p-1.5 rounded-lg border border-emerald-500/20">
+                <Zap className="w-4 h-4 text-emerald-400" />
               </div>
               SPaaS
             </Link>
@@ -631,7 +631,7 @@ export default function DemoDashboard() {
                   onClick={() => setActive(item.label)}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors border ${
                     isActive
-                      ? 'bg-violet-500/15 text-violet-200 border-violet-500/20'
+                      ? 'bg-emerald-500/15 text-emerald-200 border-emerald-500/20'
                       : 'text-zinc-400 hover:text-white hover:bg-white/5 border-transparent'
                   }`}
                 >
@@ -657,7 +657,7 @@ export default function DemoDashboard() {
             <div className="flex-1 relative max-w-md">
               <Search className="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
-                className="w-full pl-9 pr-4 py-2 rounded-lg bg-zinc-900/60 border border-white/5 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-violet-500/40"
+                className="w-full pl-9 pr-4 py-2 rounded-lg bg-zinc-900/60 border border-white/5 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-emerald-500/40"
                 placeholder="Search posts, bots, ratios..."
               />
             </div>
@@ -669,10 +669,10 @@ export default function DemoDashboard() {
             </button>
             <button className="relative p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="Notifications">
               <Bell className="w-4 h-4 text-zinc-400" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-violet-500"></span>
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-emerald-500"></span>
             </button>
             <div className="flex items-center gap-3 pl-3 border-l border-white/5">
-              <div className="w-8 h-8 rounded-full bg-violet-500/20 border border-violet-500/30 flex items-center justify-center text-xs font-semibold text-violet-200">
+              <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-xs font-semibold text-emerald-200">
                 DM
               </div>
               <div>
@@ -684,8 +684,8 @@ export default function DemoDashboard() {
 
           {/* Demo banner */}
           {bannerOpen && (
-            <div className="bg-violet-500/10 border-b border-violet-500/20 px-6 py-2.5 flex items-center gap-3 text-xs text-violet-200 flex-shrink-0">
-              <Sparkles className="w-4 h-4 text-violet-400 flex-shrink-0" />
+            <div className="bg-emerald-500/10 border-b border-emerald-500/20 px-6 py-2.5 flex items-center gap-3 text-xs text-emerald-200 flex-shrink-0">
+              <Sparkles className="w-4 h-4 text-emerald-400 flex-shrink-0" />
               <span className="flex-1">You're in demo mode. Nothing here is real. Bots are not actually posting.</span>
               <button
                 className="p-1 hover:bg-white/5 rounded transition-colors"
@@ -727,7 +727,7 @@ export default function DemoDashboard() {
                   <div data-tour="compose" className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                     <div className="flex items-center justify-between mb-3">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-violet-400" /> AI Compose
+                        <Sparkles className="w-4 h-4 text-emerald-400" /> AI Compose
                       </h2>
                       <span className="text-[10px] text-zinc-500 bg-zinc-800/60 px-2 py-0.5 rounded-full border border-white/5">
                         SPENGINE 3.0
@@ -738,7 +738,7 @@ export default function DemoDashboard() {
                       onChange={(e) => setComposeText(e.target.value)}
                       rows={2}
                       placeholder="give me a controversial take about q4 earnings..."
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-violet-500/40 resize-none"
+                      className="w-full px-4 py-3 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-emerald-500/40 resize-none"
                     />
                     <div className="flex items-center justify-between gap-3 mt-3">
                       <div className="flex gap-2 flex-wrap">
@@ -755,7 +755,7 @@ export default function DemoDashboard() {
                           onChange={setPlatform}
                         />
                       </div>
-                      <button className="bg-violet-500 hover:bg-violet-400 transition-colors text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
+                      <button className="bg-emerald-500 hover:bg-emerald-400 transition-colors text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
                         <Sparkles className="w-3.5 h-3.5" /> Generate
                       </button>
                     </div>
@@ -783,7 +783,7 @@ export default function DemoDashboard() {
                         {barHeights.map((h, i) => (
                           <div
                             key={i}
-                            className="w-full rounded-t-sm bg-violet-500/60 hover:bg-violet-500 transition-colors"
+                            className="w-full rounded-t-sm bg-emerald-500/60 hover:bg-emerald-500 transition-colors"
                             style={{ height: `${h}%` }}
                           ></div>
                         ))}
@@ -799,7 +799,7 @@ export default function DemoDashboard() {
                         <h2 className="text-sm font-medium text-zinc-300">Scheduled Posts</h2>
                         <button
                           onClick={() => setActive('Scheduled')}
-                          className="text-xs text-violet-400 hover:text-violet-300 font-medium"
+                          className="text-xs text-emerald-400 hover:text-emerald-300 font-medium"
                         >
                           View all
                         </button>
@@ -808,8 +808,8 @@ export default function DemoDashboard() {
                         {scheduled.map((item, i) => (
                           <div key={i} className="rounded-lg bg-zinc-950/40 border border-white/5 p-3">
                             <div className="flex items-center gap-2 mb-1">
-                              <Clock className="w-3 h-3 text-violet-400" />
-                              <span className="text-xs text-violet-400 font-medium">{item.time}</span>
+                              <Clock className="w-3 h-3 text-emerald-400" />
+                              <span className="text-xs text-emerald-400 font-medium">{item.time}</span>
                               <span className="text-[10px] text-zinc-600 ml-auto">{item.platform}</span>
                             </div>
                             <p className="text-xs text-zinc-400 line-clamp-2">{item.text}</p>
@@ -823,7 +823,7 @@ export default function DemoDashboard() {
                     <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                       <div className="flex items-center justify-between mb-4">
                         <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                          <Globe className="w-4 h-4 text-violet-400" /> Bot Network
+                          <Globe className="w-4 h-4 text-emerald-400" /> Bot Network
                         </h2>
                         <span className="text-[10px] text-zinc-500">global · 99.97% uptime</span>
                       </div>
@@ -905,7 +905,7 @@ export default function DemoDashboard() {
                     <div className="grid grid-cols-3 gap-3">
                       {feed.map((item, i) => (
                         <div key={i} className="rounded-lg bg-zinc-950/40 border border-white/5 p-4">
-                          <span className="text-[10px] font-medium text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20">
+                          <span className="text-[10px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                             {item.platform}
                           </span>
                           <p className="text-sm text-zinc-300 mt-2 mb-3">{item.text}</p>
@@ -922,9 +922,9 @@ export default function DemoDashboard() {
                   <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                     <div className="flex items-center justify-between mb-4">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                        <Activity className="w-4 h-4 text-violet-400" /> Recent Activity
+                        <Activity className="w-4 h-4 text-emerald-400" /> Recent Activity
                       </h2>
-                      <button className="text-xs text-violet-400 hover:text-violet-300 font-medium">View log</button>
+                      <button className="text-xs text-emerald-400 hover:text-emerald-300 font-medium">View log</button>
                     </div>
                     <div className="space-y-2">
                       {activity.map((a, i) => (
@@ -947,7 +947,7 @@ export default function DemoDashboard() {
                     </div>
                     <button
                       onClick={() => setActive('Crisis Mode')}
-                      className="text-xs text-violet-400 hover:text-violet-300 font-medium flex-shrink-0"
+                      className="text-xs text-emerald-400 hover:text-emerald-300 font-medium flex-shrink-0"
                     >
                       View drafts
                     </button>
@@ -970,7 +970,7 @@ export default function DemoDashboard() {
                   <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-6">
                     <div className="flex items-center justify-between mb-4">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-violet-400" /> AI Compose
+                        <Sparkles className="w-4 h-4 text-emerald-400" /> AI Compose
                       </h2>
                       <span className="text-[10px] text-zinc-500 bg-zinc-800/60 px-2 py-0.5 rounded-full border border-white/5">
                         SPENGINE 3.0
@@ -981,7 +981,7 @@ export default function DemoDashboard() {
                       onChange={(e) => setComposeText(e.target.value)}
                       rows={6}
                       placeholder="describe the vibe, the target, the level of plausible deniability..."
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-violet-500/40 resize-none"
+                      className="w-full px-4 py-3 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-emerald-500/40 resize-none"
                     />
                     <div className="flex items-center justify-between gap-3 mt-3">
                       <div className="flex gap-2 flex-wrap">
@@ -1004,7 +1004,7 @@ export default function DemoDashboard() {
                           onChange={() => {}}
                         />
                       </div>
-                      <button className="bg-violet-500 hover:bg-violet-400 transition-colors text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
+                      <button className="bg-emerald-500 hover:bg-emerald-400 transition-colors text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
                         <Sparkles className="w-3.5 h-3.5" /> Generate
                       </button>
                     </div>
@@ -1013,7 +1013,7 @@ export default function DemoDashboard() {
                   <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                     <div className="flex items-center justify-between mb-4">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                        <FileText className="w-4 h-4 text-violet-400" /> Drafts
+                        <FileText className="w-4 h-4 text-emerald-400" /> Drafts
                         <span className="text-[10px] text-zinc-500 font-normal">({drafts.length})</span>
                       </h2>
                       <button className="text-xs text-zinc-500 hover:text-zinc-300 flex items-center gap-1.5">
@@ -1024,7 +1024,7 @@ export default function DemoDashboard() {
                       {drafts.map((d, i) => {
                         const statusColor =
                           d.status === 'queued'
-                            ? 'text-violet-300 bg-violet-500/10 border-violet-500/20'
+                            ? 'text-emerald-300 bg-emerald-500/10 border-emerald-500/20'
                             : d.status === 'awaiting review'
                               ? 'text-amber-300 bg-amber-500/10 border-amber-500/20'
                               : 'text-zinc-400 bg-zinc-800/60 border-white/5';
@@ -1078,13 +1078,13 @@ export default function DemoDashboard() {
                               className="flex items-start gap-4 rounded-xl bg-zinc-900/40 border border-white/5 p-4 hover:bg-zinc-900/60 transition-colors"
                             >
                               <div className="flex flex-col items-center justify-center w-16 flex-shrink-0">
-                                <Clock className="w-3 h-3 text-violet-400 mb-0.5" />
-                                <span className="text-xs text-violet-400 font-medium">{item.time}</span>
+                                <Clock className="w-3 h-3 text-emerald-400 mb-0.5" />
+                                <span className="text-xs text-emerald-400 font-medium">{item.time}</span>
                               </div>
                               <div className="flex-1 min-w-0">
                                 <p className="text-sm text-zinc-200 leading-relaxed">{item.text}</p>
                                 <div className="flex items-center gap-3 mt-2">
-                                  <span className="text-[10px] font-medium text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20">
+                                  <span className="text-[10px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                                     {item.platform}
                                   </span>
                                   <span className="text-[10px] text-zinc-600">queued</span>
@@ -1127,7 +1127,7 @@ export default function DemoDashboard() {
                     <div className="col-span-2 rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                       <div className="flex items-center justify-between mb-4">
                         <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                          <Globe className="w-4 h-4 text-violet-400" /> Regions
+                          <Globe className="w-4 h-4 text-emerald-400" /> Regions
                         </h2>
                         <span className="text-[10px] text-zinc-500">99.97% combined uptime</span>
                       </div>
@@ -1162,13 +1162,13 @@ export default function DemoDashboard() {
                     </div>
                     <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2 mb-4">
-                        <Server className="w-4 h-4 text-violet-400" /> Bot Models
+                        <Server className="w-4 h-4 text-emerald-400" /> Bot Models
                       </h2>
                       <div className="space-y-3">
                         {botModels.map((m) => (
                           <div key={m.name} className="rounded-lg bg-zinc-950/40 border border-white/5 p-3">
                             <div className="flex items-center justify-between mb-1">
-                              <span className="text-xs font-mono text-violet-300">{m.name}</span>
+                              <span className="text-xs font-mono text-emerald-300">{m.name}</span>
                               <span className="text-[10px] text-zinc-500">{m.count}</span>
                             </div>
                             <p className="text-[11px] text-zinc-500">{m.purpose}</p>
@@ -1223,7 +1223,7 @@ export default function DemoDashboard() {
                       {barHeights.map((h, i) => (
                         <div
                           key={i}
-                          className="w-full rounded-t-sm bg-violet-500/60 hover:bg-violet-500 transition-colors"
+                          className="w-full rounded-t-sm bg-emerald-500/60 hover:bg-emerald-500 transition-colors"
                           style={{ height: `${h}%` }}
                         ></div>
                       ))}
@@ -1262,7 +1262,7 @@ export default function DemoDashboard() {
                               <span className="text-zinc-500">{t.value}%</span>
                             </div>
                             <div className="h-2 rounded-full bg-zinc-800/60 overflow-hidden">
-                              <div className="h-full bg-violet-500" style={{ width: `${t.value}%` }}></div>
+                              <div className="h-full bg-emerald-500" style={{ width: `${t.value}%` }}></div>
                             </div>
                           </div>
                         ))}
@@ -1323,9 +1323,9 @@ export default function DemoDashboard() {
                   <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                     <div className="flex items-center justify-between mb-4">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                        <FileText className="w-4 h-4 text-violet-400" /> Apology Templates
+                        <FileText className="w-4 h-4 text-emerald-400" /> Apology Templates
                       </h2>
-                      <button className="text-xs text-violet-400 hover:text-violet-300 font-medium">New template</button>
+                      <button className="text-xs text-emerald-400 hover:text-emerald-300 font-medium">New template</button>
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       {apologies.map((a) => (
@@ -1339,7 +1339,7 @@ export default function DemoDashboard() {
 
                   <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                     <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2 mb-4">
-                      <Activity className="w-4 h-4 text-violet-400" /> Recent crises handled
+                      <Activity className="w-4 h-4 text-emerald-400" /> Recent crises handled
                     </h2>
                     <div className="space-y-2">
                       {crisesHandled.map((c, i) => {
@@ -1381,7 +1381,7 @@ export default function DemoDashboard() {
                         <label className="text-xs text-zinc-500 mb-1.5 block">Name</label>
                         <input
                           defaultValue="Demo User"
-                          className="w-full px-3 py-2 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 focus:outline-none focus:border-violet-500/40"
+                          className="w-full px-3 py-2 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 focus:outline-none focus:border-emerald-500/40"
                         />
                       </div>
                       <div>
@@ -1395,14 +1395,14 @@ export default function DemoDashboard() {
                         <label className="text-xs text-zinc-500 mb-1.5 block">Workspace</label>
                         <input
                           defaultValue="YourCompany Inc."
-                          className="w-full px-3 py-2 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 focus:outline-none focus:border-violet-500/40"
+                          className="w-full px-3 py-2 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 focus:outline-none focus:border-emerald-500/40"
                         />
                       </div>
                       <div>
                         <label className="text-xs text-zinc-500 mb-1.5 block">Timezone</label>
                         <input
                           defaultValue="America/New_York"
-                          className="w-full px-3 py-2 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 focus:outline-none focus:border-violet-500/40"
+                          className="w-full px-3 py-2 rounded-lg bg-zinc-950/60 border border-white/5 text-sm text-zinc-200 focus:outline-none focus:border-emerald-500/40"
                         />
                       </div>
                     </div>
@@ -1411,11 +1411,11 @@ export default function DemoDashboard() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2 mb-4">
-                        <CreditCard className="w-4 h-4 text-violet-400" /> Plan & Billing
+                        <CreditCard className="w-4 h-4 text-emerald-400" /> Plan & Billing
                       </h2>
                       <div className="rounded-lg bg-zinc-950/40 border border-white/5 p-4 mb-3">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-sm font-semibold text-violet-300">Pro</span>
+                          <span className="text-sm font-semibold text-emerald-300">Pro</span>
                           <span className="text-xs text-zinc-500">$899/mo</span>
                         </div>
                         <p className="text-xs text-zinc-500">Up to 10,000 bots · Unlimited posts · Crisis Mode included</p>
@@ -1431,11 +1431,11 @@ export default function DemoDashboard() {
                     </div>
                     <div className="rounded-xl bg-zinc-900/40 border border-white/5 p-5">
                       <h2 className="text-sm font-medium text-zinc-300 flex items-center gap-2 mb-4">
-                        <Key className="w-4 h-4 text-violet-400" /> API Keys
+                        <Key className="w-4 h-4 text-emerald-400" /> API Keys
                       </h2>
                       <div className="rounded-lg bg-zinc-950/40 border border-white/5 p-3 mb-3 font-mono text-xs flex items-center justify-between">
                         <span className="text-zinc-500">sk_live_••••••••••••a4f9</span>
-                        <button className="text-violet-400 hover:text-violet-300">Copy</button>
+                        <button className="text-emerald-400 hover:text-emerald-300">Copy</button>
                       </div>
                       <button className="w-full text-xs font-medium bg-zinc-800/60 hover:bg-zinc-800 border border-white/5 px-3 py-2 rounded-lg text-zinc-200 transition-colors">
                         Generate new key

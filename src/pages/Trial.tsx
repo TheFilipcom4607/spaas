@@ -20,7 +20,7 @@ export default function Trial() {
     <div className="flex flex-col items-center">
       <section className="w-full max-w-2xl mx-auto px-4 pt-12 md:pt-20 pb-12 md:pb-24 relative">
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
         <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors group mb-12">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to homepage
@@ -48,7 +48,7 @@ export default function Trial() {
             <input
               type="text"
               placeholder="Acme Corp"
-              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-white placeholder-zinc-600 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/20 outline-none transition-all backdrop-blur-sm"
+              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-white placeholder-zinc-600 focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 outline-none transition-all backdrop-blur-sm"
             />
           </div>
 
@@ -58,7 +58,7 @@ export default function Trial() {
             <input
               type="email"
               placeholder="you@company.com"
-              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-white placeholder-zinc-600 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/20 outline-none transition-all backdrop-blur-sm"
+              className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-white placeholder-zinc-600 focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 outline-none transition-all backdrop-blur-sm"
             />
           </div>
 
@@ -66,7 +66,7 @@ export default function Trial() {
           <div>
             <label className="block text-sm font-medium text-zinc-300 mb-2">Shitposting Style</label>
             <div className="relative">
-              <select className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-white focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/20 outline-none transition-all backdrop-blur-sm appearance-none cursor-pointer">
+              <select className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 border border-white/10 text-white focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 outline-none transition-all backdrop-blur-sm appearance-none cursor-pointer">
                 <option value="" className="bg-zinc-900">Select a personality...</option>
                 <option value="corporate-unhinged" className="bg-zinc-900">Corporate Unhinged</option>
                 <option value="irony-poisoned" className="bg-zinc-900">Irony Poisoned</option>
@@ -87,9 +87,9 @@ export default function Trial() {
               {platforms.map((platform) => (
                 <label
                   key={platform}
-                  className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900/40 border border-white/5 cursor-pointer hover:border-violet-500/20 transition-all has-[:checked]:border-violet-500/30 has-[:checked]:bg-violet-500/5"
+                  className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900/40 border border-white/5 cursor-pointer hover:border-emerald-500/20 transition-all has-[:checked]:border-emerald-500/30 has-[:checked]:bg-emerald-500/5"
                 >
-                  <input type="checkbox" className="accent-violet-500 w-4 h-4 rounded" />
+                  <input type="checkbox" className="accent-emerald-500 w-4 h-4 rounded" />
                   <span className="text-sm text-zinc-300">{platform}</span>
                 </label>
               ))}

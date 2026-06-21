@@ -52,7 +52,7 @@ export default function Privacy() {
             <h2 className="text-xl font-semibold text-zinc-100 mb-3">6. Contact</h2>
             <p>
               If you have any questions about this privacy policy, you can reach the creator at{' '}
-              <a href="https://thefilip.com" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 transition-colors underline underline-offset-4">
+              <a href="https://thefilip.com" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors underline underline-offset-4">
                 thefilip.com
               </a>.
             </p>

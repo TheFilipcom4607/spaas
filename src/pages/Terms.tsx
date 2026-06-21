@@ -59,7 +59,7 @@ export default function Terms() {
             <h2 className="text-xl font-semibold text-zinc-100 mb-3">7. Contact</h2>
             <p>
               For questions about these terms, visit{' '}
-              <a href="https://thefilip.com" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 transition-colors underline underline-offset-4">
+              <a href="https://thefilip.com" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors underline underline-offset-4">
                 thefilip.com
               </a>.
             </p>
