@@ -1,0 +1,5 @@
+# Normalize line endings on checkin; check out LF everywhere.
+* text=auto eol=lf
+
+# Binary assets: never touch.
+*.png binary
